@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Emmable</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/yomna-style.css">
+</head>
+<body>
+    <header class="border-bottom">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between py-3 gap-4">
+                <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
+                <div class="input-group flex-grow-1 search-box">
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable">
+                    <span class="input-group-text bg-light border-0">
+                        <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                    </span>
+                </div>
+                <div class="d-flex align-items-center gap-3 fs-5">
+                    <a href="cart.html" class="text-dark"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-4 text-muted small">
+                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
+                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5" id="checkout-main-content">
+        <div class="row gx-lg-5">
+            <div class="col-lg-8 position-relative">
+                <div class="step-line"></div>
+                
+                <div class="d-flex align-items-start mb-4 position-relative z-1">
+                    <div class="step-circle bg-purple text-white rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold">2</div>
+                    <h2 class="fw-bold m-0 mt-1">Payment</h2>
+                </div>
+
+                <div class="ps-5 ms-2 mb-5">
+                    <h5 class="mb-4">Choose Payment method</h5>
+
+                    <div class="border rounded-3 p-4 mb-4 border-purple shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check m-0">
+                                <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" value="Credit Card" checked>
+                                <label class="form-check-label fw-semibold" for="creditCardRadio">Credit Card</label>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <i class="fa-brands fa-cc-mastercard fs-3"></i>
+                                <i class="fa-brands fa-cc-visa fs-3 text-primary"></i>
+                                <i class="fa-brands fa-cc-amex fs-3 text-info"></i>
+                            </div>
+                        </div>
+
+                        <div class="row g-3" id="credit-card-form">
+                            <div class="col-12">
+                                <input type="text" class="form-control py-2" id="cardNumber" placeholder="Card number" maxlength="19">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control py-2" id="cardName" placeholder="Name on card">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select py-2" id="expMonth">
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-select py-2" id="expYear">
+                                </select>
+                            </div>
+                            <div class="col-md-4 position-relative">
+                                <input type="text" class="form-control py-2 pe-5" id="ccv" placeholder="CCV" maxlength="4">
+                                <i class="fa-regular fa-circle-question position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-3 p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="form-check m-0">
+                                <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio" value="Paypal">
+                                <label class="form-check-label fw-semibold" for="paypalRadio">Paypal</label>
+                            </div>
+                            <i class="fa-brands fa-cc-paypal fs-3 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-start opacity-50 position-relative z-1">
+                    <div class="step-circle border border-2 border-secondary text-secondary rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold bg-white">3</div>
+                    <h3 class="fw-bold m-0 mt-1 fs-4 text-secondary">Review Order</h3>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 20px;">
+                    <h5 class="fw-bold mb-4">Order Summary</h5>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="fw-semibold" id="summary-subtotal">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Tax</span>
+                        <span class="fw-semibold" id="summary-tax">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                        <span class="text-muted">Shipping</span>
+                        <span class="fw-semibold" id="summary-shipping">$0.00</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-4 mt-2">
+                        <span class="fw-bold fs-5">Total</span>
+                        <span class="fw-bold fs-5" id="summary-total">$0.00</span>
+                    </div>
+                    
+                    <button class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6" id="btn-next">Next</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/yomna-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Order - Emmable</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/yomna-style.css">
+</head>
+<body>
+    <header class="border-bottom">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between py-3 gap-4">
+                <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
+                <div class="input-group flex-grow-1 search-box">
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable">
+                    <span class="input-group-text bg-light border-0">
+                        <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                    </span>
+                </div>
+                <div class="d-flex align-items-center gap-3 fs-5">
+                    <a href="cart.html" class="text-dark"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                </ul>
+                <div class="d-flex gap-4 text-muted small">
+                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
+                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5" id="checkout-main-content">
+        <div class="row gx-lg-5">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-start mb-4 position-relative z-1">
+                    <div class="step-circle bg-purple text-white rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold">3</div>
+                    <h2 class="fw-bold m-0 mt-1">Review Order</h2>
+                </div>
+
+                <div class="border rounded-3 p-0 mb-5 shadow-sm">
+                    <div id="dynamic-product-list"></div>
+
+                    <div class="p-4 border-bottom d-flex flex-column flex-md-row">
+                        <div class="fw-bold mb-2 mb-md-0" style="width: 180px;">Payment</div>
+                        <div class="text-muted flex-grow-1" id="review-payment-method"></div>
+                    </div>
+
+                    <div class="p-4 border-bottom d-flex flex-column flex-md-row">
+                        <div class="fw-bold mb-2 mb-md-0" style="width: 180px;">Shipping Address</div>
+                        <div class="text-muted flex-grow-1" id="review-shipping-address"></div>
+                    </div>
+
+                    <div class="p-4 d-flex flex-column flex-md-row">
+                        <div class="fw-bold mb-2 mb-md-0" style="width: 180px;">Delivery method</div>
+                        <div class="text-muted flex-grow-1" id="review-delivery-method"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 20px;">
+                    <h5 class="fw-bold mb-4">Order Summary</h5>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Subtotal</span>
+                        <span class="fw-semibold" id="review-subtotal">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="text-muted">Tax</span>
+                        <span class="fw-semibold" id="review-tax">$0.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                        <span class="text-muted">Shipping</span>
+                        <span class="fw-semibold" id="review-shipping">$0.00</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-4 mt-2">
+                        <span class="fw-bold fs-5">Total</span>
+                        <span class="fw-bold fs-5" id="review-total">$0.00</span>
+                    </div>
+                    
+                    <button class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6" id="btn-place-order">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/yomna-script.js"></script>
+</body>
+</html>
