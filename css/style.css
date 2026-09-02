@@ -1,3 +1,24 @@
 .search-box {
     max-width: 500px;
 }
+
+.category-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.cart-dropdown {
+    width: 320px;
+    z-index: 1050;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.quantity-box {
+    width: 110px;
+}
