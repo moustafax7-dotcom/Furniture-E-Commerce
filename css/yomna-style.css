@@ -1,10 +1,10 @@
+:root {
+    --main-brand-color: #5343C2; 
+}
+
 #checkout-main-content {
     max-width: 1000px;
     margin: 0 auto;
-}
-
-:root {
-    --main-brand-color: #5343C2; 
 }
 
 .bg-purple {
@@ -29,8 +29,8 @@
     top: 40px;
     bottom: -20px;
     left: 35px;
-    width: 2px;
-    background-color: #E0E0E0;
+    width: 1px;
+    border-left: 2px dashed #E0E0E0;
     z-index: 0;
 }
 

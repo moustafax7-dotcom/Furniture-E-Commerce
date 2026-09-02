@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment - Emmable</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/yomna-style.css">
 </head>
@@ -25,7 +24,7 @@
                     <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center py-3 border-top">
+            <div class="d-flex justify-content-between align-items-center py-3 border-top d-none d-md-flex">
                 <ul class="nav">
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
@@ -53,53 +52,75 @@
                 <div class="ps-5 ms-2 mb-5">
                     <h5 class="mb-4">Choose Payment method</h5>
 
-                    <div class="border rounded-3 p-4 mb-4 border-purple shadow-sm">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <div class="form-check m-0">
-                                <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" value="Credit Card" checked>
-                                <label class="form-check-label fw-semibold" for="creditCardRadio">Credit Card</label>
+                    <form id="payment-form">
+                        <div class="border rounded-3 p-4 mb-4 border-purple shadow-sm">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" value="Credit Card" checked>
+                                    <label class="form-check-label fw-semibold" for="creditCardRadio">Credit Card</label>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <i class="fa-brands fa-cc-mastercard fs-3"></i>
+                                    <i class="fa-brands fa-cc-visa fs-3 text-primary"></i>
+                                    <i class="fa-brands fa-cc-amex fs-3 text-info"></i>
+                                </div>
                             </div>
-                            <div class="d-flex gap-2">
-                                <i class="fa-brands fa-cc-mastercard fs-3"></i>
-                                <i class="fa-brands fa-cc-visa fs-3 text-primary"></i>
-                                <i class="fa-brands fa-cc-amex fs-3 text-info"></i>
+
+                            <div class="row g-3" id="credit-card-form">
+                                <div class="col-12">
+                                    <input type="text" class="form-control py-2" id="cardNumber" placeholder="Card number" maxlength="19" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control py-2" id="cardName" placeholder="Name on card" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select py-2" id="expMonth" required>
+                                        <option value="" selected disabled>Month</option>
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <select class="form-select py-2" id="expYear" required>
+                                        <option value="" selected disabled>Year</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 position-relative">
+                                    <input type="text" class="form-control py-2 pe-5" id="ccv" placeholder="CCV" maxlength="4" required>
+                                    <i class="fa-regular fa-circle-question position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="row g-3" id="credit-card-form">
-                            <div class="col-12">
-                                <input type="text" class="form-control py-2" id="cardNumber" placeholder="Card number" maxlength="19">
-                            </div>
-                            <div class="col-12">
-                                <input type="text" class="form-control py-2" id="cardName" placeholder="Name on card">
-                            </div>
-                            <div class="col-md-4">
-                                <select class="form-select py-2" id="expMonth">
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <select class="form-select py-2" id="expYear">
-                                </select>
-                            </div>
-                            <div class="col-md-4 position-relative">
-                                <input type="text" class="form-control py-2 pe-5" id="ccv" placeholder="CCV" maxlength="4">
-                                <i class="fa-regular fa-circle-question position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
+                        <div class="border rounded-3 p-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="form-check m-0">
+                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio" value="Paypal">
+                                    <label class="form-check-label fw-semibold" for="paypalRadio">Paypal</label>
+                                </div>
+                                <i class="fa-brands fa-cc-paypal fs-3 text-primary"></i>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="border rounded-3 p-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="form-check m-0">
-                                <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio" value="Paypal">
-                                <label class="form-check-label fw-semibold" for="paypalRadio">Paypal</label>
-                            </div>
-                            <i class="fa-brands fa-cc-paypal fs-3 text-primary"></i>
-                        </div>
-                    </div>
+                    </form>
                 </div>
 
-                <div class="d-flex align-items-start opacity-50 position-relative z-1">
+                <div class="d-flex align-items-start opacity-50 position-relative z-1 mt-5">
                     <div class="step-circle border border-2 border-secondary text-secondary rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold bg-white">3</div>
                     <h3 class="fw-bold m-0 mt-1 fs-4 text-secondary">Review Order</h3>
                 </div>
@@ -108,34 +129,29 @@
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <div class="card border-0 shadow-sm rounded-4 p-4 sticky-top" style="top: 20px;">
                     <h5 class="fw-bold mb-4">Order Summary</h5>
-                    
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Subtotal</span>
-                        <span class="fw-semibold" id="summary-subtotal">$0.00</span>
+                        <span class="fw-semibold">$942.00</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Tax</span>
-                        <span class="fw-semibold" id="summary-tax">$0.00</span>
+                        <span class="fw-semibold">$00.00</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
                         <span class="text-muted">Shipping</span>
-                        <span class="fw-semibold" id="summary-shipping">$0.00</span>
+                        <span class="fw-semibold">$14.00</span>
                     </div>
-                    
                     <div class="d-flex justify-content-between mb-4 mt-2">
                         <span class="fw-bold fs-5">Total</span>
-                        <span class="fw-bold fs-5" id="summary-total">$0.00</span>
+                        <span class="fw-bold fs-5">$46.77</span>
                     </div>
-                    
-                    <button class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6" id="btn-next">Next</button>
+                    <button type="submit" form="payment-form" class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6" id="btn-next">Next</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="js/jquery-4.0.0.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/yomna-script.js"></script>
 </body>
 </html>
