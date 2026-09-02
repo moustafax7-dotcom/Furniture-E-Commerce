@@ -3,40 +3,605 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order-success</title>
-    
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Furniture</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/media.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <section class="py-5">
-    <div class="container text-center">
 
-        <div class="check-icon mx-auto mb-4">
-            <i class="fa-solid fa-check"></i>
+<body>
+     <!-- Top BLack Div -->
+    <div class="top-bar bg-black text-white py-2">
+        <div class="container d-flex justify-content-between align-items-center small">
+            <span>Support (00) 33 169 7720</span>
+            <span>Free shipping worldwide. Orders over $200</span>
+            <div>
+                <span>
+                    Eng
+                    <i class="fa-solid fa-angle-down"></i>
+                </span>
+
+                <span class="ms-4">
+                    USD
+                    <i class="fa-solid fa-angle-down"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar  -->
+     <nav class="main-nav py-3 border-bottom">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="text-decoration-none text-dark fw-bold fs-3"> Emmable </a>
+
+            <div class="search-box d-flex align-items-center">
+                <input type="text" class="border-0 bg-transparent w-100" placeholder="Search in Emmable">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+
+            <div class="nav-icons d-flex gap-4 fs-5">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Navbar-1 -->
+    <nav class="menu-nav py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <ul class="menu list-unstyled d-flex gap-4 m-0">
+
+                <li>
+                     <a href="" class="text-decoration-none text-dark">
+                      Room <i class="fa-solid fa-angle-down small"></i>
+                     </a>
+                    
+                </li>
+
+
+                <li>
+                     <a href="" class="text-decoration-none text-dark">
+                         Product <i class="fa-solid fa-angle-down small"></i>
+                     </a>
+                </li>
+
+
+                <li>
+                    <a href="category-living-room.html" class="text-decoration-none text-dark">
+                        Collections
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="#contact" class="text-decoration-none text-dark">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="right-menu d-flex gap-5">
+                <span>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Store Location
+                </span>
+                <span>Track your order</span>
+            </div>
+        </div>
+    </nav>
+
+    <!--Text F-->
+     <section class="text-center py-5">
+        <div class="container">
+            <h1 class="hero-title fw-bold display-4">
+                A furniture that eases your life
+            </h1>
+
+            <p class="text-secondary mt-3 mb-0">
+                Explore world's class top furnitures as per your requirements and choice
+            </p>
         </div>
 
-        <h1 class="fw-bold">
-            Thanks for your order!
-        </h1>
+    </section>
 
-        <p class="fw-medium">
-            Your order ID is: QW12ER34TY56
-        </p>
 
-        <p class="text-secondary mt-4">
-            You will receive an order confirmation email with
-            <br>
-            details of your order.
-        </p>
+    <!--Image Section 1 -->
+    <section class="hero-image position-relative">
+        <img src="images/New Vionse Life.jpg" class="w-100 d-block object-fit-cover" alt="Furniture">
 
-        <a href="#" class="btn check-btn rounded-pill px-5 py-3 mt-3">
-            Check Status
+        <a href="category-living-room.html" class="shop-btn position-absolute top-50 start-50 translate-middle">
+
+            Shop Now
+            <i class="fa-solid fa-angle-right ms-4"></i>
         </a>
 
-    </div>
-</section>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  </body>
+    </section>
+
+    <!-- Preferred Category -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5"> Preferred Category</h2>
+            <div class="row g-4">
+
+                <!-- Mirror -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+
+                    <a href="category-living-room.html">
+                        <img src="images/Mirror.jpg" class="category-img w-100" alt="Mirror">
+                    </a>
+                    <h6 class="mt-3">Mirror</h6>
+                </div>
+
+                <!-- Bed -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+                    <a href="category-living-room.html">
+
+                        <img src="images/bed.jpg" class="category-img w-100" alt="Bed">
+                    </a>
+                    <h6 class="mt-3">Bed</h6>
+                </div>
+
+                <!-- Cushion -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+                    <a href="category-living-room.html">
+
+                        <img src="images/cushion.jpg" class="category-img w-100" alt="Cushion">
+                    </a>
+                    <h6 class="mt-3">Cushion</h6>
+                </div>
+
+                <!-- Sofa -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+                    <a href="category-living-room.html">
+                        <img src="images/sofa.jpg"  class="category-img w-100" alt="Sofa">
+                    </a>
+                    <h6 class="mt-3">Sofa</h6>
+                </div>
+
+                <!-- Chair -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+                    <a href="category-living-room.html">
+                        <img src="images/chair.jpg" class="category-img w-100" alt="Chair">
+                    </a>
+                    <h6 class="mt-3">Chair</h6>
+                </div>
+
+                <!-- Lamp -->
+
+                <div class="col-lg-2 col-md-4 col-6 text-center">
+                    <a href="category-living-room.html">
+                        <img src="images/lampa.jpg" class="category-img w-100" alt="Lamp">
+                    </a>
+                    <h6 class="mt-3">Lamp</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- New Products -->
+    <section class="new-products py-5">
+        <div class="container">
+            <div class="products-head d-flex justify-content-between align-items-center mb-5">
+                <h2 class="fw-bold m-0"> New Products</h2>
+
+                <ul class="category-menu list-unstyled d-flex gap-4 align-items-center m-0">
+                    <li class="active-category" data-filter="all"> All category </li>
+                    <li data-filter="furniture"> Furnitures </li>
+                    <li data-filter="chairs"> Chairs </li>
+                    <li data-filter="decor"> Decor </li>
+                    <li data-filter="lighting"> Lighting</li>
+                </ul>
+            </div>
+            <div class="row g-4">
+
+                <!-- Furniture T -->
+
+                <div class="col-lg-4 col-md-6 product-item" data-category="furniture">
+                    <div class="product-card text-center">
+                        <img src="images/round coffee.jpg"
+                            class="w-100 rounded-3 object-fit-cover"
+                            alt="Round Coffee Table">
+                        <h5 class="fw-bold mt-3"> Round Coffee Table </h5>
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2"> 4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $18.90
+                            <del class="small text-secondary">
+                                $23.21
+                            </del>
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Chair 1 -->
+
+                <div class="col-lg-4 col-md-6 product-item" data-category="chairs">
+                    <div class="product-card text-center">
+                        <img src="images/studio chair-1.jpg" class="w-100 rounded-3 object-fit-cover" alt="Studio Chair">
+                        <h5 class="fw-bold mt-3"> Studio Chair </h5>
+
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2">  4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $18.90
+                            <del class="small text-secondary"> $23.21 </del>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Decor -->
+
+                <div class="col-lg-4 col-md-6 product-item" data-category="decor">
+                    <div class="product-card text-center">
+
+                        <img src="images/cushion -1.jpg"
+                            class="w-100 rounded-3 object-fit-cover"
+                            alt="Cushion">
+
+                        <h5 class="fw-bold mt-3"> Cushion Cactus </h5>
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2"> 4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $18.90
+                            <del class="small text-secondary">  $23.21 </del>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Chair 2 -->
+
+                <div class="col-lg-4 col-md-6 product-item" data-category="chairs">
+                    <div class="product-card text-center">
+
+                        <img src="images/studio chair-4.jpg" class="w-100 rounded-3 object-fit-cover" alt="Studio Chair">
+                        <h5 class="fw-bold mt-3">  Modern Studio Chair </h5>
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2"> 4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $18.90
+                            <del class="small text-secondary"> $23.21 </del>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Lighting  -->
+
+                <div class="col-lg-4 col-md-6 product-item" data-category="lighting">
+                    <div class="product-card text-center">
+
+                        <img src="images/lampa.jpg" class="w-100 rounded-3 object-fit-cover" alt="Lamp">
+                        <h5 class="fw-bold mt-3"> Modern Lamp </h5>
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2"> 4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $25.00
+                            <del class="small text-secondary"> $30.00</del>
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Lighting 1 -->
+
+                <div class="col-lg-4 col-md-6 product-item " data-category="lighting">
+                    <div class="product-card text-center">
+                        <img src="images/Lamp-z.jpg" class="w-100 rounded-3 object-fit-cover"  alt="Lamp">
+
+                        <h5 class="fw-bold mt-3"> Classic Lamp </h5>
+                        <div class="rating">
+
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+
+                            <span class="text-dark ms-2"> 4.8 (102 reviews) </span>
+                        </div>
+
+                        <p class="fw-bold mt-2 mb-0"> $12.00
+                            <del class="small text-secondary"> $20.00 </del>
+                        </p>
+                    </div>
+                  </div>
+               </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Collection -->
+    <section class="collection-section">
+        <div class="container-fluid bg-light">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-2 order-lg-1">
+                    <div class="collection-content">
+                        <p class="fw-bold mb-4"> Mega sale upto 75% </p>
+
+                        <h2 class="fw-bold mb-3 collection-title"> Fancy Sofa set </h2>
+                        <p class="text-secondary mb-4"> Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt.</p>
+                        <div class="d-flex mb-3">
+                            <img src="images/white loung chair.jpg" class="small-product-img" alt="Chair">
+                            <div class="ms-4">
+                                <h5 class="fw-bold"> White Lounge Chair </h5>
+
+                                <p class="fw-bold mb-0">  $250.00
+
+                                    <del class="text-secondary small"> $330.21 </del>
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="d-flex align-items-center mb-5">
+                            <img src="images/Bookcase.jpg" class="small-product-img"  alt="Bookcase">
+                            <div class="ms-4">
+                                <h5 class="fw-bold">Edward Minimalist
+                                    <br>
+                                    Bookcase 2x5
+
+                                </h5>
+
+                                <p class="fw-bold mb-0"> $28.72
+                                    <del class="text-secondary small"> $35.90</del>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <a href="category-living-room.html" class="collection-btn"> Explore Collection <i class="fa-solid fa-angle-right ms-3"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 order-1 order-lg-2 p-0">
+                    <img src="images/sofe set.jpg" class="collection-img w-100" alt="Fancy Sofa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands-section py-5">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 g-5 align-items-center text-center">
+                <div class="col">
+                    <img src="images/brand.gif" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/B-2.png" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/B-3.png" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-4.png" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-5.gif" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/B-51.svg" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-6.png" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-8.gif" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-9.gif" class="brand-img" alt="Brand">
+                </div>
+
+                <div class="col">
+                    <img src="images/b-10.png" class="brand-img" alt="Brand">
+                </div>
+
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#" class="all-brands fw-bold text-decoration-none"> See all available brands</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent News -->
+    <section class="recent-news py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold display-5 mb-5"> Our Recent News </h2>
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+
+                        <img src="images/z-1.jpg" class="w-100 rounded-3 news-img" alt="News">
+                        <h3 class="fw-bold mt-4">   Magic Tricks to Become a Cozy & Instagramable Living Room</h3>
+                        <p class="fw-bold small"> Category / 18 Dec, 2023</p>
+                        <hr>
+                        <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="news-card">
+
+                        <img src="images/z-2.jpg" class="w-100 rounded-3 news-img" alt="News">
+                        <h3 class="fw-bold mt-4"> 5 Examples of Scandinavian Kitchen Designs</h3>
+                        <p class="fw-bold small">  Category / 18 Dec, 2023 </p>
+
+                        <hr>
+
+                        <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  </p>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="news-card">
+                        <img src="images/z-3.jpg" class="w-100 rounded-3 news-img" alt="News">
+                        <h3 class="fw-bold mt-4"> Office furniture cum wall units of TV Stand</h3>
+                        <p class="fw-bold small"> Category / 18 Dec, 2023 </p>
+
+                        <hr>
+                        <p class="text-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-light" id="contact">
+        <div class="container py-5">
+            <div class="row g-4">
+
+                <div class="col-lg-5 col-md-6">
+                    <h3>Emmable</h3>
+                    <p class="text-secondary"> Easy & reliable online buying and selling site</p>
+                </div>
+
+
+                <div class="col-lg-2 col-md-6">
+
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Career</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Blogs</a>
+                    <a href="#">Flash Sale</a>
+
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+
+                    <h4>Buyer</h4>
+
+                    <a href="#">How to shop</a>
+                    <a href="#">Payment method</a>
+                    <a href="#">Track Buyer Orders</a>
+                    <a href="#">Free Shipping</a>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <h4>Contact us</h4>
+
+                    <a href="#"><i class="fa-solid fa-phone"></i> (123) 456 7890</a>
+
+                    <a href="#"><i class="fa-solid fa-envelope"></i>
+                        hello@emmable.com
+                    </a>
+
+                    <a href="#"><i class="fa-solid fa-calendar"></i>
+                        Monday - Friday
+                    </a>
+
+
+                    <div class="social">
+
+                        <a href="#"> <i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"> <i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-top">
+            <div class="container py-4">
+                <div class="row gy-3 align-items-center">
+
+                    <div class="col-md-6">
+
+                        <p class="text-secondary mb-0">
+                            © 2022 All rights reserved.
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-6 text-md-end">
+                        <div class="payments">
+                            <strong>Accepted Payments</strong>
+                            <span>PayPal</span>
+                            <span>AMEX</span>
+                            <span>VISA</span>
+                            <span>G Pay</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+       
+   <!-- links -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
 </html>

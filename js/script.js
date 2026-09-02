@@ -2,8 +2,10 @@
 let categories = document.querySelectorAll(".category-menu li");
 let products = document.querySelectorAll(".product-item");
 
-for (let i = 0; i < categories.length; i++) {
-    categories[i].onclick = function () {
+for (let i = 0; i < categories.length; i++)
+     {
+       categories[i].onclick = function () {
+
         let filter = categories[i].getAttribute("data-filter");
 
         for (let j = 0; j < categories.length; j++) {

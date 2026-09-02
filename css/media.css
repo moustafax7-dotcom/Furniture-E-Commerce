@@ -1,0 +1,126 @@
+/* <---------------------------index-------------------------> */
+
+@media (max-width: 1200px) {
+
+    .collection-img {
+        height: 450px;
+    }
+}
+
+/* <----------------TABLET--------------> */
+   
+@media (max-width: 991px) {
+
+    .top-bar .container {
+        flex-wrap: wrap;
+        row-gap: 6px;
+        justify-content: center;
+        text-align: center;
+    }
+   .z-0{
+        height: 485px;
+        padding-top: 10px;
+   }
+    
+    .row-cols-md-5{
+        width: 90%;
+    }
+}
+
+  /* <----------- MOBILE ----------------> */
+
+@media (max-width: 767px) {
+
+    /* Top Bar */
+    .top-bar .container {
+        padding: 2px 12px;
+        font-size: 8px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    /* First Navbar */
+    .main-nav .container {
+        padding: 0 12px;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+
+    .search-box input {
+        font-size: 11px;
+    }
+
+   
+    .menu-nav .menu li {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .right-menu span:nth-child(2) {
+        display: none;
+    }
+
+    .right-menu span:first-child {
+        font-size: 0;
+    }
+
+    .right-menu span:first-child i {
+        font-size: 15px;
+    }
+
+
+    .hero-title {
+        font-size: 33px;
+    }
+
+
+    .shop-btn {
+        font-size: 10px;
+    }
+
+
+    /* New Products */
+    .category-menu li {
+        font-size: 11px;
+        padding: 6px 13px;
+    }
+
+
+    /* Collection */
+    .collection-content {
+        padding: 30px 15px;
+        text-align: center;
+    }
+
+    /* Brands */
+   .row-cols-2 {
+    width: 90%;
+   }
+
+    /* Footer */
+    footer .row > .col-lg-5 {
+        text-align: center;
+    }
+
+    footer .row > .col-lg-2 {
+        width: 50%;
+    }
+
+    footer .row > .col-lg-3 {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    footer h3 {
+        font-size: 24px;
+    }
+
+    footer h4 {
+        font-size: 17px;
+    }
+
+    footer a {
+        font-size: 14px;
+    }
+
+}
