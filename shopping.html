@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/madlen-style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="page-card">
+    <h4 class="fw-bold mb-4">shopping cart</h4>
+
+    <div id="item1" class="d-flex justify-content-between align-items-center border-bottom py-3">
+      <div class="d-flex align-items-center">
+        <img src="images/image19.png" class="item-photo me-3" alt="Chair">
+        <div>
+          <p class="fw-bold mb-1">MALSKAR/ LOBERGET Chair - White</p>
+          <p class="fw-bold mb-1">$<span id="price1">28.88</span></p>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(1,'minus')">-</button>
+            <span id="qty1" class="mx-2">1</span>
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(1,'plus')">+</button>
+          </div>
+        </div>
+      </div>
+      <button class="trash-btn" onclick="removeItem(1)"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+    <div id="item2" class="d-flex justify-content-between align-items-center border-bottom py-3">
+      <div class="d-flex align-items-center">
+        <img src="images/image11.png" class="item-photo me-3" alt="Wooden Chair">
+        <div>
+          <p class="fw-bold mb-1">Wooden Chair</p>
+          <p class="fw-bold mb-1">$<span id="price2">8.00</span></p>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(2,'minus')">-</button>
+            <span id="qty2" class="mx-2">1</span>
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(2,'plus')">+</button>
+          </div>
+        </div>
+      </div>
+      <button class="trash-btn" onclick="removeItem(2)"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+    <div id="item3" class="d-flex justify-content-between align-items-center border-bottom py-3">
+      <div class="d-flex align-items-center">
+        <img src="images/image14.png" class="item-photo me-3" alt="Round Coffee Table">
+        <div>
+          <p class="fw-bold mb-1">Round Coffee Table</p>
+          <p class="fw-bold mb-1">$<span id="price3">9.75</span></p>
+          <div class="d-flex align-items-center">
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(3,'minus')">-</button>
+            <span id="qty3" class="mx-2">1</span>
+            <button class="btn btn-outline-secondary qty-btn" onclick="changeQty(3,'plus')">+</button>
+          </div>
+        </div>
+      </div>
+      <button class="trash-btn" onclick="removeItem(3)"><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center py-3">
+      <span class="fw-bold fs-5">Total:</span>
+      <span class="fw-bold fs-5">$<span id="total">46.77</span></span>
+    </div>
+
+    <input type="text" class="form-control mb-3" placeholder="Add note for the seller">
+
+    <a href="shipping.html" class="btn btn-checkout w-100">
+      <i class="fa-solid fa-lock me-2"></i>Continue to payment
+    </a>
+  </div>
+</div>
+
+<script src="js/madlen.js"></script>
+</body>
+</html>

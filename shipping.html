@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipping Address</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/madlen-style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="page-card">
+    <h4 class="fw-bold mb-4">Shipping Address</h4>
+
+    <form id="shipForm" onsubmit="checkForm(event)" novalidate>
+
+      <label for="email" class="form-label fw-bold">Contact information</label>
+      <input type="email" id="email" class="form-control mb-1" placeholder="Your email" required>
+      <div class="invalid-feedback">Please enter your email.</div>
+
+      <div class="form-check mb-4 mt-2">
+        <input type="checkbox" id="news" class="form-check-input" checked>
+        <label for="news" class="form-check-label">Email me with news and offers</label>
+      </div>
+
+      <label class="form-label fw-bold">Shipping address</label>
+      <select id="country" class="form-select mb-3" required>
+        <option value="" selected disabled>Country</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Egypt">Egypt</option>
+        <option value="USA">United States</option>
+      </select>
+      <div class="invalid-feedback">Please choose a country.</div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <input type="text" id="fname" class="form-control" placeholder="First name" required>
+          <div class="invalid-feedback">Please enter your first name.</div>
+        </div>
+        <div class="col">
+          <input type="text" id="lname" class="form-control" placeholder="Last name" required>
+          <div class="invalid-feedback">Please enter your last name.</div>
+        </div>
+      </div>
+
+      <input type="text" id="address" class="form-control mb-3" placeholder="Address" required>
+      <div class="invalid-feedback">Please enter your address.</div>
+
+      <input type="text" id="city" class="form-control mb-3" placeholder="City" required>
+      <div class="invalid-feedback">Please enter your city.</div>
+
+      <div class="row mb-3">
+        <div class="col">
+          <select id="province" class="form-select" required>
+            <option value="" selected disabled>Province</option>
+            <option value="West Java">West Java</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Cairo">Cairo</option>
+          </select>
+          <div class="invalid-feedback">Please choose a province.</div>
+        </div>
+        <div class="col">
+          <input type="text" id="zip" class="form-control" placeholder="Postal code" required>
+          <div class="invalid-feedback">Please enter your postal code.</div>
+        </div>
+      </div>
+
+      <input type="tel" id="phone" class="form-control mb-4" placeholder="Phone" required>
+      <div class="invalid-feedback">Please enter your phone number.</div>
+
+      <div class="text-end">
+        <button type="submit" class="btn btn-next">Next</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<script src="js/madlen.js"></script>
+</body>
+</html>
