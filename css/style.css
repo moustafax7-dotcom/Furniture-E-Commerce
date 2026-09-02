@@ -1,3 +1,4 @@
+/* <-------------------------------------index-style-------------------------------------> */
 .search-box {
     max-width: 500px;
 }
@@ -21,4 +22,198 @@
 
 .quantity-box {
     width: 110px;
+}
+* {
+  box-sizing: border-box;
+  }
+
+html{
+  scroll-behavior: smooth;
+  }
+
+
+ body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+.search-box {
+width: 65%;
+background-color: #f5f5f5;
+border-radius: 30px;
+padding: 12px 20px;
+}
+
+.search-box input {
+outline: none;
+}
+
+
+.hero-image img {
+height: 500px;
+}
+
+.shop-btn,
+.collection-btn {
+background-color: #4e342e;
+color: white;
+border: none;
+padding: 15px 30px;
+border-radius: 50px;
+transition: 0.3s;
+text-decoration: none;
+}
+
+.shop-btn:hover,
+.collection-btn:hover {
+background-color: #795548;
+}
+
+
+.category-img {
+height: 110px;
+object-fit: cover;
+border-radius: 8px;
+transition: 0.3s;
+}
+
+.category-img:hover {
+transform: scale(1.05);
+}
+
+
+.category-menu li {
+cursor: pointer;
+}
+
+.active-category {
+border: 1px solid #795548;
+border-radius: 30px;
+padding: 8px 18px;
+color: #4e342e;
+}
+
+.featured-product {
+height: 100%;
+}
+
+.product-card img {
+height: 290px;
+}
+
+.rating {
+color: #d97706;
+font-size: 14px;
+}
+
+
+.collection-content {
+width: 70%;
+margin: auto;
+}
+
+.small-product-img {
+width: 90px;
+height: 90px;
+object-fit: cover;
+}
+
+.collection-img {
+height: 600px;
+object-fit: cover;
+}
+
+.collection-btn {
+font-weight: bold;
+}
+
+
+.brand-img {
+    width: 220px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.all-brands {
+color: #4e342e;
+transition: 0.3s;
+}
+
+.all-brands:hover {
+color: #8d6e63;
+}
+
+
+.news-img {
+height: 250px;
+object-fit: cover;
+}
+
+footer a {
+display: block;
+text-decoration: none;
+color: #777;
+margin-bottom: 12px;
+transition: 0.3s;
+}
+
+footer a:hover {
+color: #4e342e;
+}
+
+footer h3 {
+margin-bottom: 15px;
+}
+
+footer h4 {
+margin-bottom: 25px;
+}
+
+.social {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+.social a {
+margin-bottom: 0;
+font-size: 20px;
+}
+
+.payments {
+display: flex;
+align-items: center;
+justify-content: end;
+gap: 15px;
+}
+
+.payments span {
+font-size: 14px;
+}
+
+/* <----------------------------------order-success-Style-----------------------------------> */
+.check-icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid  #795548;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-icon i {
+    color: #795548;
+    font-size: 25px;
+}
+
+.check-btn {
+    background-color:  #795548;
+    color: white;
+}
+
+.check-btn:hover {
+    background-color:  #d6aea0;
+    color: white;
 }
