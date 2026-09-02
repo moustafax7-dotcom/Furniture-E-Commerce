@@ -1,40 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const creditRadio = document.getElementById('creditCardRadio');
-    const paypalRadio = document.getElementById('paypalRadio');
-    const ccForm = document.getElementById('credit-card-form');
-    const ccInput = document.getElementById('cardNumber');
-    const paymentForm = document.getElementById('payment-form');
-    const btnPlaceOrder = document.getElementById('btn-place-order');
-
-    if (creditRadio && paypalRadio && ccForm) {
-        const toggleForm = () => {
-            ccForm.style.display = creditRadio.checked ? 'flex' : 'none';
-            const inputs = ccForm.querySelectorAll('input, select');
-            inputs.forEach(input => input.required = creditRadio.checked);
-        };
-        creditRadio.addEventListener('change', toggleForm);
-        paypalRadio.addEventListener('change', toggleForm);
-        toggleForm();
+document.addEventListener("DOMContentLoaded", function () {
+    var creditCardRadio = document.getElementById("creditCardRadio");
+    var paypalRadio = document.getElementById("paypalRadio");
+    var paymentForm = document.getElementById("payment-form");
+    var placeOrderBtn = document.getElementById("btn-place-order");
+ 
+    if (creditCardRadio != null && paypalRadio != null) {
+        creditCardRadio.addEventListener("click", toggleCreditCardForm);
+        paypalRadio.addEventListener("click", toggleCreditCardForm);
     }
-
-    if (ccInput) {
-        ccInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
-        });
+ 
+    if (paymentForm != null) {
+        paymentForm.addEventListener("submit", goToReviewPage);
     }
-
-    if (paymentForm) {
-        paymentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            window.location.href = 'review.html';
-        });
-    }
-
-    if (btnPlaceOrder) {
-        btnPlaceOrder.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Order Placed Successfully!');
-            window.location.href = 'payment.html';
-        });
+ 
+    if (placeOrderBtn != null) {
+        placeOrderBtn.addEventListener("click", goToSuccessPage);
     }
 });
+ 
+function toggleCreditCardForm() {
+    var creditCardRadio = document.getElementById("creditCardRadio");
+    var creditCardForm = document.getElementById("creditCardForm");
+ 
+    if (creditCardRadio.checked == true) {
+        creditCardForm.style.display = "flex";
+    } else {
+        creditCardForm.style.display = "none";
+    }
+}
+ 
+function goToReviewPage(event) {
+    event.preventDefault();
+    var paymentForm = document.getElementById("payment-form");
+ 
+    if (paymentForm.checkValidity() == true) {
+        window.location.href = "review.html";
+    } else {
+        paymentForm.reportValidity();
+    }
+}
+ 
+function goToSuccessPage() {
+    window.location.href = "success.html";
+}
