@@ -83,7 +83,10 @@
     .category-menu li {
         font-size: 11px;
         padding: 6px 13px;
+        white-space: nowarp;
     }
+
+
 
 
     /* Collection */
