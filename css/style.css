@@ -6,6 +6,13 @@
 
 html{
   scroll-behavior: smooth;
+
+  }
+  .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: white;
   }
 
 
@@ -107,8 +114,8 @@ font-weight: bold;
 
 
 .brand-img {
-    width: 220px;
-    height: 80px;
+    width: 250px;
+    height: 100px;
     object-fit: contain;
 }
 
@@ -192,6 +199,11 @@ font-size: 14px;
 .check-btn:hover {
     background-color:  #d6aea0;
     color: white;
+}
+.category-img {
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .search-box {
