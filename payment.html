@@ -20,7 +20,7 @@
                     </span>
                 </div>
                 <div class="d-flex align-items-center gap-3 fs-5">
-                    <a href="cart.html" class="text-dark"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="shopping.html" class="text-dark"><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
@@ -43,8 +43,8 @@
         <div class="row gx-lg-5">
             <div class="col-lg-8 position-relative">
                 <div class="step-line"></div>
-                
-                <div class="d-flex align-items-start mb-4 position-relative z-1">
+
+                <div class="d-flex align-items-start mb-4 position-relative">
                     <div class="step-circle bg-purple text-white rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold">2</div>
                     <h2 class="fw-bold m-0 mt-1">Payment</h2>
                 </div>
@@ -52,11 +52,11 @@
                 <div class="ps-5 ms-2 mb-5">
                     <h5 class="mb-4">Choose Payment method</h5>
 
-                    <form id="payment-form">
+                    <form id="payment-form" novalidate>
                         <div class="border rounded-3 p-4 mb-4 border-purple shadow-sm">
                             <div class="d-flex justify-content-between align-items-center mb-4">
                                 <div class="form-check m-0">
-                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" value="Credit Card" checked>
+                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" checked>
                                     <label class="form-check-label fw-semibold" for="creditCardRadio">Credit Card</label>
                                 </div>
                                 <div class="d-flex gap-2">
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <div class="row g-3" id="credit-card-form">
+                            <div class="row g-3" id="creditCardForm">
                                 <div class="col-12">
                                     <input type="text" class="form-control py-2" id="cardNumber" placeholder="Card number" maxlength="19" required>
                                 </div>
@@ -111,7 +111,7 @@
                         <div class="border rounded-3 p-4">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="form-check m-0">
-                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio" value="Paypal">
+                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio">
                                     <label class="form-check-label fw-semibold" for="paypalRadio">Paypal</label>
                                 </div>
                                 <i class="fa-brands fa-cc-paypal fs-3 text-primary"></i>
@@ -120,7 +120,7 @@
                     </form>
                 </div>
 
-                <div class="d-flex align-items-start opacity-50 position-relative z-1 mt-5">
+                <div class="d-flex align-items-start opacity-50 position-relative mt-5">
                     <div class="step-circle border border-2 border-secondary text-secondary rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold bg-white">3</div>
                     <h3 class="fw-bold m-0 mt-1 fs-4 text-secondary">Review Order</h3>
                 </div>
@@ -139,13 +139,13 @@
                     </div>
                     <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
                         <span class="text-muted">Shipping</span>
-                        <span class="fw-semibold">$14.00</span>
+                    <span class="fw-semibold">$14.00</span>
                     </div>
                     <div class="d-flex justify-content-between mb-4 mt-2">
                         <span class="fw-bold fs-5">Total</span>
                         <span class="fw-bold fs-5">$46.77</span>
                     </div>
-                    <button type="submit" form="payment-form" class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6" id="btn-next">Next</button>
+                    <button type="submit" form="payment-form" class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6">Next</button>
                 </div>
             </div>
         </div>

@@ -1,53 +1,62 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const creditRadio = document.getElementById('creditCardRadio');
-    const paypalRadio = document.getElementById('paypalRadio');
-    const ccForm = document.getElementById('credit-card-form');
-    const ccInput = document.getElementById('cardNumber');
-    const paymentForm = document.getElementById('payment-form');
-    const btnPlaceOrder = document.getElementById('btn-place-order');
-
-    if (creditRadio && paypalRadio && ccForm) {
-        const toggleForm = () => {
-            ccForm.style.display = creditRadio.checked ? 'flex' : 'none';
-            const inputs = ccForm.querySelectorAll('input, select');
-            inputs.forEach(input => input.required = creditRadio.checked);
-        };
-        creditRadio.addEventListener('change', toggleForm);
-        paypalRadio.addEventListener('change', toggleForm);
-        toggleForm();
+document.addEventListener("DOMContentLoaded", function () {
+    var creditCardRadio = document.getElementById("creditCardRadio");
+    var paypalRadio = document.getElementById("paypalRadio");
+    var paymentForm = document.getElementById("payment-form");
+    var placeOrderBtn = document.getElementById("btn-place-order");
+    var cardNumberInput = document.getElementById("cardNumber");
+    if (cardNumberInput != null) {
+        cardNumberInput.addEventListener("input", formatCardNumber);
     }
 
-    if (ccInput) {
-        ccInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/\D/g, '').replace(/(.{4})/g, '$1 ').trim();
-        });
+    if (creditCardRadio != null && paypalRadio != null) {
+        creditCardRadio.addEventListener("click", toggleCreditCardForm);
+        paypalRadio.addEventListener("click", toggleCreditCardForm);
     }
 
-    if (paymentForm) {
-        paymentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            window.location.href = 'review.html';
-        });
+    if (paymentForm != null) {
+        paymentForm.addEventListener("submit", goToReviewPage);
     }
 
-    if (btnPlaceOrder) {
-        btnPlaceOrder.addEventListener('click', (e) => {
-            e.preventDefault();
-            alert('Order Placed Successfully!');
-            window.location.href = 'payment.html';
-        });
+    if (placeOrderBtn != null) {
+        placeOrderBtn.addEventListener("click", goToSuccessPage);
     }
 });
 
-fetch("navbar.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-    });
+function toggleCreditCardForm() {
+    var creditCardRadio = document.getElementById("creditCardRadio");
+    var creditCardForm = document.getElementById("creditCardForm");
 
+    if (creditCardRadio.checked == true) {
+        creditCardForm.style.display = "flex";
+    } else {
+        creditCardForm.style.display = "none";
+    }
+}
 
-fetch("footer.html")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("footer").innerHTML = data;
-    });
+function goToReviewPage(event) {
+    event.preventDefault();
+    var paymentForm = document.getElementById("payment-form");
+
+    if (paymentForm.checkValidity() == true) {
+        window.location.href = "review.html";
+    } else {
+        paymentForm.reportValidity();
+    }
+}
+
+function goToSuccessPage() {
+    window.location.href = "order-success.html";
+}
+
+function formatCardNumber(event) {
+    var value = event.target.value.replace(/\D/g, "");
+    value = value.substring(0, 16);
+    var formattedValue = "";
+    for (var i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 == 0) {
+            formattedValue += " ";
+        }
+        formattedValue += value[i];
+    }
+    event.target.value = formattedValue;
+}

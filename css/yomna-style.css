@@ -1,5 +1,5 @@
 :root {
-    --main-brand-color: #5343C2; 
+    --main-brand-color: #5343C2;
 }
 
 #checkout-main-content {
@@ -22,6 +22,7 @@
 .step-circle {
     width: 40px;
     height: 40px;
+    flex-shrink: 0;
 }
 
 .step-line {
@@ -29,9 +30,7 @@
     top: 40px;
     bottom: -20px;
     left: 35px;
-    width: 1px;
     border-left: 2px dashed #E0E0E0;
-    z-index: 0;
 }
 
 .custom-radio:checked {
@@ -40,11 +39,21 @@
 }
 
 .custom-radio:focus {
-    box-shadow: 0 0 0 0.25rem rgba(83, 67, 194, 0.25) !important;
     border-color: var(--main-brand-color) !important;
+    box-shadow: 0 0 0 0.25rem rgba(83, 67, 194, 0.25) !important;
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--main-brand-color) !important;
     box-shadow: 0 0 0 0.25rem rgba(83, 67, 194, 0.25) !important;
+}
+
+.product-thumb {
+    width: 80px;
+    height: 80px;
+}
+
+.detail-label {
+    width: 180px;
 }
