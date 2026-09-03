@@ -200,6 +200,9 @@ font-size: 14px;
     background-color:  #d6aea0;
     color: white;
 }
+
+/* <------------product-----------> */
+
 .category-img {
     height: 100px;
     object-fit: cover;
@@ -229,4 +232,11 @@ font-size: 14px;
 
 .quantity-box {
     width: 110px;
+}
+
+.color-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
 }
