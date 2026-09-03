@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var paypalRadio = document.getElementById("paypalRadio");
     var paymentForm = document.getElementById("payment-form");
     var placeOrderBtn = document.getElementById("btn-place-order");
+    var cardNumberInput = document.getElementById("cardNumber");
+    if (cardNumberInput != null) {
+        cardNumberInput.addEventListener("input", formatCardNumber);
+    }
 
     if (creditCardRadio != null && paypalRadio != null) {
         creditCardRadio.addEventListener("click", toggleCreditCardForm);
@@ -41,5 +45,18 @@ function goToReviewPage(event) {
 }
 
 function goToSuccessPage() {
-    window.location.href = "success.html";
+    window.location.href = "order-success.html";
+}
+
+function formatCardNumber(event) {
+    var value = event.target.value.replace(/\D/g, "");
+    value = value.substring(0, 16);
+    var formattedValue = "";
+    for (var i = 0; i < value.length; i++) {
+        if (i > 0 && i % 4 == 0) {
+            formattedValue += " ";
+        }
+        formattedValue += value[i];
+    }
+    event.target.value = formattedValue;
 }
