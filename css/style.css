@@ -245,4 +245,26 @@ font-size: 14px;
     border-radius: 50%;
     display: inline-block;
 }
+/* <------------2-----------> */
+.product-thumb {
+    width: 70px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+}
 
+.color-swatch {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.quantity-box-lg {
+    width: 130px;
+}
+
+.wishlist-btn {
+    width: 55px;
+    height: 55px;
+}
