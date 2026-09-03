@@ -1,10 +1,8 @@
-// بيانات المنتجات اللي في الكارت
 const cartItems = [
     { id: 1, price: 28.88, qty: 1 },
     { id: 2, price: 8.00, qty: 1 }
 ];
 
-// تغيير كمية منتج معين
 function changeQty(itemId, amount) {
     const item = cartItems.find(i => i.id === itemId);
     item.qty += amount;
@@ -14,7 +12,6 @@ function changeQty(itemId, amount) {
     updateCartSummary();
 }
 
-// تحديث العدد والسعر الإجمالي
 function updateCartSummary() {
     document.getElementById('cartCount').textContent = cartItems.length;
 
@@ -25,21 +22,18 @@ function updateCartSummary() {
     document.getElementById('cartSubtotal').textContent = '$' + subtotal.toFixed(2);
 }
 
-// فتح وقفل الكارت
 function toggleCartDropdown(e) {
     e.preventDefault();
     document.getElementById('cartDropdown').classList.toggle('d-none');
 }
 
-document.getElementById('cartToggle').addEventListener('click', toggleCartDropdown);
-updateCartSummary()
-
 fetch("navbar.html")
     .then(response => response.text())
     .then(data => {
         document.getElementById("navbar").innerHTML = data;
+        document.getElementById('cartToggle').addEventListener('click', toggleCartDropdown);
+        updateCartSummary();
     });
-
 
 fetch("footer.html")
     .then(response => response.text())
