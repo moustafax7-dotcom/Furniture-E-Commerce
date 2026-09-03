@@ -49,6 +49,13 @@ transition: 0.3s;
 text-decoration: none;
 }
 
+.nav-bot{
+  text-decoration: none;
+  border: none;
+  transition: 0.1em;
+  background-color: white;
+}
+
 .shop-btn:hover,
 .collection-btn:hover {
 background-color: #795548;
