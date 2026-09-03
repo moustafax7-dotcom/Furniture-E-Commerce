@@ -174,7 +174,7 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="d-flex gap-3">
                 <button class="btn btn-outline-secondary rounded-pill" type="button">Sort by: Populer</button>
-                <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button">Filter</button>
+                <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterDrawer">Filter</button>
             </div>
             <p class="text-muted mb-0">Shows 1-40 of 183 product</p>
         </div>
@@ -395,9 +395,217 @@
         </nav>
 
     </main>
+
+    <footer class="bg-light pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">Emmable</h5>
+                    <p class="text-muted small mb-4">Easy & reliable online buying and selling site</p>
+                    <h6 class="fw-bold mb-2">Download our app</h6>
+                    <div class="d-flex gap-2">
+                        <img src="images/app_store_badge.png" alt="App Store" style="height: 40px;">
+                        <img src="images/google_play.png" alt="Google Play" style="height: 40px;">
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-6">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Career</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Blogs</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Flash Sale</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Affiliates</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 col-6">
+                    <h6 class="fw-bold mb-3">Buyer</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">How to shop</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Payment method</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Track Buyer Orders</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Free Shipping</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Returns & Funds</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Guarantee</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">Contact us</h6>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-phone me-2"></i>(123) 456 7890</p>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@emmable.com</p>
+                    <p class="text-muted small mb-3"><i class="fa-solid fa-clock me-2"></i>Monday - Friday: 09.00 - 16.00 WIB</p>
+                    <div class="d-flex gap-3 fs-5 text-muted">
+                        <a href="#" class="text-muted"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-muted"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <p class="text-muted small mb-0">© 2022 All rights reserved. Designed by Designspace.</p>
+                <p class="text-muted small mb-0">Accepted Payments</p>
             </div>
         </div>
     </footer>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filterDrawer">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="fw-bold mb-0">Filter</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+
+        <div class="offcanvas-body">
+
+            <div class="accordion accordion-flush" id="filterAccordion">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#priceCollapse">
+                            Price
+                        </button>
+                    </h2>
+                    <div id="priceCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+                        <div class="accordion-body px-0">
+                            <p class="text-muted small mb-3">From $5.00 to $300.00</p>
+                            <input type="range" class="form-range" min="5" max="300" value="150" id="priceRange">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#brandCollapse">
+                            Brand
+                        </button>
+                    </h2>
+                    <div id="brandCollapse" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                        <div class="accordion-body px-0 text-muted small">
+                            Brand filter options here
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#specCollapse">
+                            Specification
+                        </button>
+                    </h2>
+                    <div id="specCollapse" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
+                        <div class="accordion-body px-0 text-muted small">
+                            Specification filter options here
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#colorCollapse">
+                            Color
+                        </button>
+                    </h2>
+                    <div id="colorCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
+                        <div class="accordion-body px-0">
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#fff; border:1px solid #ddd;"></span>
+                                    <span>White (210)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input" checked>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#7b4b28;"></span>
+                                    <span>Brown (34)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input" checked>
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#000;"></span>
+                                    <span>Black (64)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#ccc;"></span>
+                                    <span>Grey (34)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#e15b4a;"></span>
+                                    <span>Red (12)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#2455d1;"></span>
+                                    <span>Blue (23)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#4fc3c9;"></span>
+                                    <span>Tosca (7)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#5a9e3f;"></span>
+                                    <span>Green (23)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#f0a52a;"></span>
+                                    <span>Orange (12)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="color-dot" style="background:#f06fa8;"></span>
+                                    <span>Pink (4)</span>
+                                </div>
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="offcanvas-footer border-top p-3 d-flex gap-2">
+            <button class="btn btn-outline-dark rounded-pill flex-grow-1">Clear All</button>
+            <button class="btn btn-primary rounded-pill flex-grow-1" id="applyFilterBtn">Apply (2)</button>
+        </div>
+    </div>
 
     <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/popper.min.js"></script>
