@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Product Details | Emmable</title>
+    <meta name="description" content="View product details, pricing, and add furniture items to your Emmable cart.">
+    <link rel="canonical" href="https://furniture-e-commerce-sand.vercel.app/product-details.html">
+    <meta property="og:title" content="Product Details | Emmable">
+    <meta property="og:description" content="View product details, pricing, and add furniture items to your Emmable cart.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://furniture-e-commerce-sand.vercel.app/product-details.html">
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.min.css">
@@ -11,39 +17,89 @@
 </head>
 <body>
 
-    <main class="container py-5">
+<header class="border-bottom sticky-top bg-white">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between py-3 gap-4">
+                <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
+
+                <div class="input-group flex-grow-1 search-box">
+                    <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
+                    <span class="input-group-text bg-light border-0">
+                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
+                    </span>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
+
+                    <!--زرار الكارت -->
+                    <div class="position-relative">
+                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                        <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
+                            <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
+
+                            <div id="cartItemsContainer"></div>
+
+                            <!-- الإجمالي وزراير الدفع -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="fw-semibold">Subtotal</span>
+                                <span class="fw-bold" id="cartSubtotal">$36.88</span>
+                            </div>
+
+                            <a href="shipping.html" class="btn btn-primary w-100 rounded-pill mb-2">Checkout</a>
+                            <a href="shopping.html" class="btn btn-outline-dark w-100 rounded-pill">View Cart</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                </ul>
+
+                <div class="d-flex gap-4 text-muted small">
+                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
+                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <main class="container py-5" id="productDetailsRoot">
 
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Workspace</a></li>
-                <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted">Home workspace</a></li>
-                <li class="breadcrumb-item active text-dark" aria-current="page">Home work chair</li>
+                <li class="breadcrumb-item"><a href="products.html" class="text-decoration-none text-muted">Products</a></li>
+                <li class="breadcrumb-item active text-dark" aria-current="page" id="breadcrumbProductName">Product</li>
             </ol>
         </nav>
 
-        <div class="row g-5 mb-5">
+        <div class="mb-4">
+            <a href="products.html" class="text-muted small text-decoration-none"><i class="fa-solid fa-arrow-left me-1"></i>Continue Shopping</a>
+        </div>
+
+        <div class="row g-3 g-lg-5 mb-5">
             <div class="col-lg-6">
-                <img src="images/studio chair-4.jpg" class="img-fluid rounded-3 mb-3" alt="MALSKÄR/ LOBERGET Chair">
-                <div class="d-flex gap-2">
-                    <img src="images/chair.jpg" class="rounded-3 product-thumb" alt="thumbnail 1">
-                    <img src="images/image4.png" class="rounded-3 product-thumb" alt="thumbnail 2">
-                    <img src="images/image5.png" class="rounded-3 product-thumb" alt="thumbnail 3">
-                    <img src="images/image6.png" class="rounded-3 product-thumb" alt="thumbnail 4">
-                    <img src="images/image9.png" class="rounded-3 product-thumb" alt="thumbnail 5">
-                </div>
+                <img id="detailImage" src="images/studio chair-4.jpg" class="img-fluid rounded-3 mb-3" alt="MALSKÄR/ LOBERGET Chair">
+                
             </div>
 
             <div class="col-lg-6">
-                <h1 class="fw-bold mb-2">MALSKÄR/ LOBERGET Chair - White</h1>
-
-                <div class="d-flex align-items-center gap-2 mb-2">
-                    <span class="badge bg-danger">40%</span>
-                    <span class="text-muted text-decoration-line-through">Rp45.000</span>
-                </div>
+                <h1 class="fw-bold mb-2" id="detailName">MALSKÄR/ LOBERGET Chair - White</h1>
 
                 <div class="d-flex align-items-center gap-3 mb-4">
-                    <span class="fs-2 fw-bold">$28.88</span>
+                    <span class="fs-2 fw-bold" id="detailPrice">$28.88</span>
+                    <span class="text-muted text-decoration-line-through fs-6 d-none" id="detailOldPrice">$0.00</span>
                     <span class="text-warning">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         <span class="text-dark small">4.8 (102 reviews)</span>
@@ -63,9 +119,9 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <p class="fw-semibold mb-0">Stock: 12 left</p>
                     <div class="input-group quantity-box-lg">
-                        <button class="btn btn-outline-secondary" type="button">-</button>
-                        <input type="text" class="form-control text-center" value="1" readonly>
-                        <button class="btn btn-outline-secondary" type="button">+</button>
+                        <button class="btn btn-outline-secondary" type="button" id="detailQtyMinus" onclick="changeDetailQty(-1)" aria-label="Decrease quantity" disabled>-</button>
+                        <input type="text" class="form-control text-center" id="detailQtyInput" value="1" readonly aria-label="Quantity">
+                        <button class="btn btn-outline-secondary" type="button" onclick="changeDetailQty(1)" aria-label="Increase quantity">+</button>
                     </div>
                 </div>
 
@@ -73,7 +129,7 @@
                     <button class="btn btn-outline-secondary rounded-circle wishlist-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
-                    <button class="btn btn-primary rounded-pill flex-grow-1 py-3">
+                    <button class="btn btn-primary rounded-pill flex-grow-1 py-3" id="detailAddToCartBtn" onclick="addDetailProductToCart()">
                         <i class="fa-solid fa-cart-shopping me-2"></i>Add to Cart
                     </button>
                 </div>
@@ -140,97 +196,20 @@
         </div>
 
         <h3 class="fw-bold mb-4">Good-matching products</h3>
-        <div class="row g-4 mb-5 pb-4 border-bottom">
-            <div class="col-6 col-md-3">
-                <img src="images/sofe set.jpg" class="img-fluid rounded-3 mb-3" alt="Side Table">
-                <p class="mb-1 fw-semibold">Side Table</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$24.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/round coffee.jpg" class="img-fluid rounded-3 mb-3" alt="Round Coffee Table">
-                <p class="mb-1 fw-semibold">Round Coffee Table</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$19.21</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/cushion -1.jpg" class="img-fluid rounded-3 mb-3" alt="Cushion Cactus">
-                <p class="mb-1 fw-semibold">Cushion Cactus</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$7.00</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/bed.jpg" class="img-fluid rounded-3 mb-3" alt="Wooden Table">
-                <p class="mb-1 fw-semibold">Wooden Table</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$15.90</span></p>
-            </div>
-        </div>
+        <div class="row g-4 mb-5 pb-4 border-bottom" id="goodMatchingList"></div>
 
         <h3 class="fw-bold mb-4">Related products</h3>
-        <div class="row g-4 mb-5">
-            <div class="col-6 col-md-3">
-                <img src="images/image20.png" class="img-fluid rounded-3 mb-3" alt="C Side Table">
-                <p class="mb-1 fw-semibold">C Side Table</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$10.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/chair.jpg" class="img-fluid rounded-3 mb-3" alt="Dining chairs">
-                <p class="mb-1 fw-semibold">Dining chairs</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/image13.png" class="img-fluid rounded-3 mb-3" alt="Copper Chandelier">
-                <p class="mb-1 fw-semibold">Copper Chandelier</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$18.90</span></p>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <img src="images/image18.png" class="img-fluid rounded-3 mb-3" alt="Marigold Sofa">
-                <p class="mb-1 fw-semibold">Marigold Sofa</p>
-                <p class="small text-warning mb-1">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                    <span class="text-dark">4.8 (102 reviews)</span>
-                </p>
-                <p class="mb-0"><span class="fw-bold">$199.90</span> <span class="text-muted text-decoration-line-through small">$249.90</span></p>
-            </div>
-        </div>
+        <div class="row g-4 mb-5" id="relatedProductsList"></div>
 
     </main>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/jquery-4.0.0.min.js"></script>
+
+
+
+
+
+
+
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>

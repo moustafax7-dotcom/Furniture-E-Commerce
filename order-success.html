@@ -3,30 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order-success</title>
+    <title>Order Confirmed | Emmable</title>
+    <meta name="description" content="Your Emmable order has been placed successfully.">
+    <link rel="canonical" href="https://furniture-e-commerce-sand.vercel.app/order-success.html">
+    <meta property="og:title" content="Order Confirmed | Emmable">
+    <meta property="og:description" content="Your Emmable order has been placed successfully.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://furniture-e-commerce-sand.vercel.app/order-success.html">
     
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-     <nav class="main-nav py-3 border-bottom navbar">
-        <div class="container d-flex align-items-center justify-content-between">
-            <a href="index.html" class="text-decoration-none text-dark fw-bold fs-3"> Emmable </a>
+     <header class="border-bottom sticky-top bg-white">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between py-3 gap-4">
+                <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
 
-            <div class="search-box d-flex align-items-center">
-                <input type="text" class="border-0 bg-transparent w-100" placeholder="Search in Emmable">
-                <i class="fa-solid fa-magnifying-glass"></i>
+                <div class="input-group flex-grow-1 search-box">
+                    <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
+                    <span class="input-group-text bg-light border-0">
+                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
+                    </span>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
+
+                    <!--زرار الكارت -->
+                    <div class="position-relative">
+                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                        <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
+                            <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
+
+                            <div id="cartItemsContainer"></div>
+
+                            <!-- الإجمالي وزراير الدفع -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="fw-semibold">Subtotal</span>
+                                <span class="fw-bold" id="cartSubtotal">$36.88</span>
+                            </div>
+
+                            <a href="shipping.html" class="btn btn-primary w-100 rounded-pill mb-2">Checkout</a>
+                            <a href="shopping.html" class="btn btn-outline-dark w-100 rounded-pill">View Cart</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
+                </div>
             </div>
 
+            <div class="d-flex justify-content-between align-items-center py-3 border-top">
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                </ul>
 
-            <div class="nav-icons d-flex gap-4 fs-5">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <i class="fa-solid fa-user"></i>
-
+                <div class="d-flex gap-4 text-muted small">
+                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
+                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
     
     <section class="py-5">
     <div class="container text-center">
@@ -56,89 +99,66 @@
     </div>
     </section>
 
-   <footer class="bg-light" id="contact footer">
-        <div class="container py-5" id="contact">
+   <footer class="bg-light pt-5 pb-3 mt-5" id="contact">
+        <div class="container">
             <div class="row g-4">
-
-                <div class="col-lg-5 col-md-6">
-                    <h3>Emmable</h3>
-                    <p class="text-secondary"> Easy & reliable online buying and selling site</p>
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3">Emmable</h5>
+                    <p class="text-muted small mb-4">Easy & reliable online buying and selling site</p>
+                    <h6 class="fw-bold mb-2">Download our app</h6>
+                    <div class="d-flex gap-2">
+                        <img src="images/app_store_badge.png" alt="App Store" style="height: 40px;">
+                        <img src="images/google_play.png" alt="Google Play" style="height: 40px;">
+                    </div>
                 </div>
 
-
-                <div class="col-lg-2 col-md-6">
-
-                    <h4>Company</h4>
-                    <a href="#">About Us</a>
-                    <a href="#">Career</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Blogs</a>
-                    <a href="#">Flash Sale</a>
-
+                <div class="col-md-2 col-6">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Career</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Blogs</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Flash Sale</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Affiliates</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-6">
-
-                    <h4>Buyer</h4>
-
-                    <a href="#">How to shop</a>
-                    <a href="#">Payment method</a>
-                    <a href="#">Track Buyer Orders</a>
-                    <a href="#">Free Shipping</a>
-
+                <div class="col-md-2 col-6">
+                    <h6 class="fw-bold mb-3">Buyer</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">How to shop</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Payment method</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Track Buyer Orders</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Free Shipping</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Returns & Funds</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Guarantee</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-
-                    <h4>Contact us</h4>
-
-                    <a href="#"><i class="fa-solid fa-phone"></i> (123) 456 7890</a>
-
-                    <a href="#"><i class="fa-solid fa-envelope"></i>
-                        hello@emmable.com
-                    </a>
-
-                    <a href="#"><i class="fa-solid fa-calendar"></i>
-                        Monday - Friday
-                    </a>
-
-
-                    <div class="social">
-
-                        <a href="#"> <i class="fa-brands fa-twitter"></i></a>
-                        <a href="#"> <i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"> <i class="fa-brands fa-linkedin"></i></a>
-
+                <div class="col-md-4">
+                    <h6 class="fw-bold mb-3">Contact us</h6>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-phone me-2"></i>(123) 456 7890</p>
+                    <p class="text-muted small mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@emmable.com</p>
+                    <p class="text-muted small mb-3"><i class="fa-solid fa-clock me-2"></i>Monday - Friday: 09.00 - 16.00 WIB</p>
+                    <div class="d-flex gap-3 fs-5 text-muted">
+                        <a href="#" class="text-muted"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="text-muted"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="border-top">
-            <div class="container py-4">
-                <div class="row gy-3 align-items-center">
+            <hr class="my-4">
 
-                    <div class="col-md-6">
-
-                        <p class="text-secondary mb-0">
-                            © 2022 All rights reserved.
-                        </p>
-                    </div>
-
-
-                    <div class="col-md-6 text-md-end">
-                        <div class="payments">
-                            <strong>Accepted Payments</strong>
-                            <span>PayPal</span>
-                            <span>AMEX</span>
-                            <span>VISA</span>
-                            <span>G Pay</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <p class="text-muted small mb-0">© 2022 All rights reserved. Designed by Designspace.</p>
+                <p class="text-muted small mb-0">Accepted Payments</p>
             </div>
         </div>
     </footer>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

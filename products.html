@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Products | Emmable</title>
+    <meta name="description" content="Browse and filter Emmable's furniture catalog by category, price, and more.">
+    <link rel="canonical" href="https://furniture-e-commerce-sand.vercel.app/products.html">
+    <meta property="og:title" content="Products | Emmable">
+    <meta property="og:description" content="Browse and filter Emmable's furniture catalog by category, price, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://furniture-e-commerce-sand.vercel.app/products.html">
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/all.min.css">
@@ -11,60 +17,29 @@
 </head>
 <body>
 
-    <header class="border-bottom">
+    <header class="border-bottom sticky-top bg-white">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between py-3 gap-4">
                 <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
 
                 <div class="input-group flex-grow-1 search-box">
-                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable">
+                    <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
                     <span class="input-group-text bg-light border-0">
-                        <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
                     </span>
                 </div>
 
-                <div class="d-flex align-items-center gap-3 fs-5">
+                <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
 
                     <!--زرار الكارت -->
                     <div class="position-relative">
-                        <a href="#" class="text-dark" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
 
                         <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
-                            <h6 class="fw-bold mb-3">Cart (<span id="cartCount">2</span>)</h6>
+                            <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
 
-                            <!-- منتج 1 -->
-                            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                <img src="images/image1.png" class="rounded-3 cart-item-img" alt="MALSKAR Chair">
-                                <div class="flex-grow-1">
-                                    <p class="mb-1 small fw-semibold">MALSKAR/ LOBERGET Chair - White</p>
-                                    <p class="text-muted small mb-2">Total package weight: 4.23 kg</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group input-group-sm quantity-box">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQty(1, -1)">-</button>
-                                            <input type="text" class="form-control text-center" id="qty1" value="1" readonly>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQty(1, 1)">+</button>
-                                        </div>
-                                        <span class="fw-bold">$28.88</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- منتج 2 -->
-                            <div class="d-flex gap-3 mb-3 pb-3 border-bottom">
-                                <img src="images/image2.png" class="rounded-3 cart-item-img" alt="Wooden Chair">
-                                <div class="flex-grow-1">
-                                    <p class="mb-1 small fw-semibold">Wooden Chair</p>
-                                    <p class="text-muted small mb-2">Total package weight: 4.23 kg</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group input-group-sm quantity-box">
-                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQty(2, -1)">-</button>
-                                            <input type="text" class="form-control text-center" id="qty2" value="1" readonly>
-                                            <button class="btn btn-outline-secondary" type="button" onclick="changeQty(2, 1)">+</button>
-                                        </div>
-                                        <span class="fw-bold">$8.00</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div id="cartItemsContainer"></div>
 
                             <!-- الإجمالي وزراير الدفع -->
                             <div class="d-flex justify-content-between mb-3">
@@ -72,20 +47,20 @@
                                 <span class="fw-bold" id="cartSubtotal">$36.88</span>
                             </div>
 
-                            <button class="btn btn-primary w-100 rounded-pill mb-2">Checkout</button>
-                            <a href="cart.html" class="btn btn-outline-dark w-100 rounded-pill">View Cart</a>
+                            <a href="shipping.html" class="btn btn-primary w-100 rounded-pill mb-2">Checkout</a>
+                            <a href="shopping.html" class="btn btn-outline-dark w-100 rounded-pill">View Cart</a>
                         </div>
                     </div>
 
-                    <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
+                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
 
             <div class="d-flex justify-content-between align-items-center py-3 border-top">
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
                 </ul>
 
@@ -103,23 +78,23 @@
 
         <!-- صف أيقونات الفئات -->
         <div class="d-flex gap-3 pb-4 mb-4 border-bottom overflow-auto">
-            <a href="#" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
+            <a href="products.html?category=sofa%20recliner" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image6.png" class="rounded-circle category-icon" alt="Sofa Recliner">
                 <span class="small">Sofa Recliner</span>
             </a>
-            <a href="#" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
+            <a href="products.html?category=sofa" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image7.png" class="rounded-circle category-icon" alt="Sofa">
                 <span class="small">Sofa</span>
             </a>
-            <a href="#" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
+            <a href="products.html?category=chair" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image6.png" class="rounded-circle category-icon" alt="Chair">
                 <span class="small">Chair</span>
             </a>
-            <a href="#" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
+            <a href="products.html?category=table" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image25.png" class="rounded-circle category-icon" alt="Table">
                 <span class="small">Table</span>
             </a>
-            <a href="#" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
+            <a href="products.html?category=tv%20cabinet" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image22.png" class="rounded-circle category-icon" alt="TV Cabinet">
                 <span class="small">TV cabinet</span>
             </a>
@@ -139,6 +114,9 @@
                     </p>
                     <p class="mb-0"><span class="fw-bold">$10.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
                 </a>
+                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(1, 1)">
+                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                </button>
             </div>
 
             <div class="col-6 col-md-3">
@@ -151,6 +129,9 @@
                     </p>
                     <p class="mb-0"><span class="fw-bold">$199.90</span> <span class="text-muted text-decoration-line-through small">$249.90</span></p>
                 </a>
+                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(2, 1)">
+                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                </button>
             </div>
 
             <div class="col-6 col-md-3">
@@ -163,6 +144,9 @@
                     </p>
                     <p class="mb-0"><span class="fw-bold">$18.90</span></p>
                 </a>
+                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(3, 1)">
+                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                </button>
             </div>
 
             <div class="col-6 col-md-3">
@@ -175,263 +159,42 @@
                     </p>
                     <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
                 </a>
+                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(4, 1)">
+                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                </button>
             </div>
         </div>
 
         <!-- شريط الترتيب والفلتر -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="d-flex gap-3">
-                <button class="btn btn-outline-secondary rounded-pill" type="button">Sort by: Populer</button>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" id="sortLabel">Sort by: Populer</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="applySort(''); return false;">Featured</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="applySort('price-asc'); return false;">Price: Low to High</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="applySort('price-desc'); return false;">Price: High to Low</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="applySort('name-asc'); return false;">Name: A to Z</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="applySort('name-desc'); return false;">Name: Z to A</a></li>
+                    </ul>
+                </div>
                 <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterDrawer">Filter</button>
             </div>
-            <p class="text-muted mb-0">Shows 1-40 of 183 product</p>
+            <p class="text-muted mb-0" id="productsCount">24 products</p>
         </div>
 
         <!-- جريد المنتجات -->
-        <div class="row g-4 mb-5">
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=5" class="text-decoration-none text-dark">
-                    <img src="images/image15.png" class="img-fluid rounded-3 mb-3" alt="Side Table">
-                    <p class="mb-1 fw-semibold">Side Table</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
+        <div class="row g-4 mb-5" id="productsGrid"></div>
 
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=6" class="text-decoration-none text-dark">
-                    <img src="images/image26.png" class="img-fluid rounded-3 mb-3" alt="Wall Lamp">
-                    <p class="mb-1 fw-semibold">Wall Lamp</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$8.90</span> <span class="text-muted text-decoration-line-through small">$10.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=7" class="text-decoration-none text-dark">
-                    <img src="images/image10.png" class="img-fluid rounded-3 mb-3" alt="Cushion Cactus">
-                    <p class="mb-1 fw-semibold">Cushion Cactus</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$7.00</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=8" class="text-decoration-none text-dark">
-                    <img src="images/image20.png" class="img-fluid rounded-3 mb-3" alt="Studio Chair">
-                    <p class="mb-1 fw-semibold">Studio Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=9" class="text-decoration-none text-dark">
-                    <img src="images/image19.png" class="img-fluid rounded-3 mb-3" alt="Studio Chair">
-                    <p class="mb-1 fw-semibold">Studio Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$23.90</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=10" class="text-decoration-none text-dark">
-                    <img src="images/image18.png" class="img-fluid rounded-3 mb-3" alt="Wood Coaster">
-                    <p class="mb-1 fw-semibold">Wood Coaster</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$2.90</span> <span class="text-muted text-decoration-line-through small">$4.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=11" class="text-decoration-none text-dark">
-                    <img src="images/image22.png" class="img-fluid rounded-3 mb-3" alt="TV Cabinet">
-                    <p class="mb-1 fw-semibold">TV Cabinet</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$120.00</span> <span class="text-muted text-decoration-line-through small">$160.00</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=12" class="text-decoration-none text-dark">
-                    <img src="images/image16.png" class="img-fluid rounded-3 mb-3" alt="Studio Chair">
-                    <p class="mb-1 fw-semibold">Studio Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=13" class="text-decoration-none text-dark">
-                    <img src="images/image14.png" class="img-fluid rounded-3 mb-3" alt="High Chair">
-                    <p class="mb-1 fw-semibold">High Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$10.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=14" class="text-decoration-none text-dark">
-                    <img src="images/image13.png" class="img-fluid rounded-3 mb-3" alt="Classic Sofa">
-                    <p class="mb-1 fw-semibold">Classic Sofa</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$199.90</span> <span class="text-muted text-decoration-line-through small">$249.90</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=15" class="text-decoration-none text-dark">
-                    <img src="images/image23.png" class="img-fluid rounded-3 mb-3" alt="Standing Lamp">
-                    <p class="mb-1 fw-semibold">Standing Lamp</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$8.99</span> <span class="text-muted text-decoration-line-through small">$12.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=16" class="text-decoration-none text-dark">
-                    <img src="images/image18.png" class="img-fluid rounded-3 mb-3" alt="Warm Hexagon Lamp">
-                    <p class="mb-1 fw-semibold">Warm Hexagon Lamp</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$2.12</span> <span class="text-muted text-decoration-line-through small">$5.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=17" class="text-decoration-none text-dark">
-                    <img src="images/image16.png" class="img-fluid rounded-3 mb-3" alt="Side Table">
-                    <p class="mb-1 fw-semibold">Side Table</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=18" class="text-decoration-none text-dark">
-                    <img src="images/image7.png" class="img-fluid rounded-3 mb-3" alt="Studio Chair">
-                    <p class="mb-1 fw-semibold">Studio Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">3.0 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=19" class="text-decoration-none text-dark">
-                    <img src="images/image2.png" class="img-fluid rounded-3 mb-3" alt="Net Chair">
-                    <p class="mb-1 fw-semibold">Net Chair</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=20" class="text-decoration-none text-dark">
-                    <img src="images/image3.png" class="img-fluid rounded-3 mb-3" alt="Hanging Shelf">
-                    <p class="mb-1 fw-semibold">Hanging Shelf</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=21" class="text-decoration-none text-dark">
-                    <img src="images/image15.png" class="img-fluid rounded-3 mb-3" alt="Marmer Cabinet">
-                    <p class="mb-1 fw-semibold">Marmer Cabinet</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=22" class="text-decoration-none text-dark">
-                    <img src="images/image20.png" class="img-fluid rounded-3 mb-3" alt="Wooden Table">
-                    <p class="mb-1 fw-semibold">Wooden Table</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$15.90</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=23" class="text-decoration-none text-dark">
-                    <img src="images/image13.png" class="img-fluid rounded-3 mb-3" alt="Small Cabinet">
-                    <p class="mb-1 fw-semibold">Small Cabinet</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=24" class="text-decoration-none text-dark">
-                    <img src="images/image21.png" class="img-fluid rounded-3 mb-3" alt="Wooden Table">
-                    <p class="mb-1 fw-semibold">Wooden Table</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-            </div>
+        <div id="productsEmptyState" class="text-center py-5 d-none">
+            <i class="fa-solid fa-box-open fs-1 text-muted mb-3"></i>
+            <h5 class="fw-bold mb-2">No products found</h5>
+            <p class="text-muted mb-4">Try adjusting your search or filters.</p>
+            <button class="btn btn-outline-dark rounded-pill px-4" onclick="clearAllFilters()">Clear Filters</button>
         </div>
 
         <!-- ترقيم الصفحات -->
-        <nav aria-label="Products pagination">
+        <nav aria-label="Products pagination" id="productsPagination">
             <ul class="pagination justify-content-center">
                 <li class="page-item active"><a class="page-link rounded-circle mx-1" href="#">1</a></li>
                 <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">2</a></li>
@@ -444,64 +207,7 @@
 
     </main>
 
-    <footer class="bg-light pt-5 pb-3 mt-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5 class="fw-bold mb-3">Emmable</h5>
-                    <p class="text-muted small mb-4">Easy & reliable online buying and selling site</p>
-                    <h6 class="fw-bold mb-2">Download our app</h6>
-                    <div class="d-flex gap-2">
-                        <img src="images/app_store_badge.png" alt="App Store" style="height: 40px;">
-                        <img src="images/google_play.png" alt="Google Play" style="height: 40px;">
-                    </div>
-                </div>
-
-                <div class="col-md-2 col-6">
-                    <h6 class="fw-bold mb-3">Company</h6>
-                    <ul class="list-unstyled text-muted small">
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">About Us</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Career</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Privacy Policy</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Blogs</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Flash Sale</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Affiliates</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-6">
-                    <h6 class="fw-bold mb-3">Buyer</h6>
-                    <ul class="list-unstyled text-muted small">
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">How to shop</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Payment method</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Track Buyer Orders</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Free Shipping</a></li>
-                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Returns & Funds</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Guarantee</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4">
-                    <h6 class="fw-bold mb-3">Contact us</h6>
-                    <p class="text-muted small mb-2"><i class="fa-solid fa-phone me-2"></i>(123) 456 7890</p>
-                    <p class="text-muted small mb-2"><i class="fa-solid fa-envelope me-2"></i>hello@emmable.com</p>
-                    <p class="text-muted small mb-3"><i class="fa-solid fa-clock me-2"></i>Monday - Friday: 09.00 - 16.00 WIB</p>
-                    <div class="d-flex gap-3 fs-5 text-muted">
-                        <a href="#" class="text-muted"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="text-muted"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="text-muted"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="my-4">
-
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                <p class="text-muted small mb-0">© 2022 All rights reserved. Designed by Designspace.</p>
-                <p class="text-muted small mb-0">Accepted Payments</p>
-            </div>
-        </div>
-    </footer>
+    
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="filterDrawer">
         <div class="offcanvas-header border-bottom">
@@ -521,8 +227,8 @@
                     </h2>
                     <div id="priceCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                         <div class="accordion-body px-0">
-                            <p class="text-muted small mb-3">From $5.00 to $300.00</p>
-                            <input type="range" class="form-range" min="5" max="300" value="150" id="priceRange">
+                            <p class="text-muted small mb-3" id="priceRangeLabel">Up to $200.00</p>
+                            <input type="range" class="form-range" min="0" max="200" value="200" id="priceRange">
                         </div>
                     </div>
                 </div>
@@ -562,85 +268,85 @@
                     <div id="colorCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                         <div class="accordion-body px-0">
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#fff; border:1px solid #ddd;"></span>
                                     <span>White (210)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input" checked>
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#7b4b28;"></span>
                                     <span>Brown (34)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input" checked>
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#000;"></span>
                                     <span>Black (64)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#ccc;"></span>
                                     <span>Grey (34)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#e15b4a;"></span>
                                     <span>Red (12)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#2455d1;"></span>
                                     <span>Blue (23)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#4fc3c9;"></span>
                                     <span>Tosca (7)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#5a9e3f;"></span>
                                     <span>Green (23)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between mb-3">
+                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#f0a52a;"></span>
                                     <span>Orange (12)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
-                            <div class="d-flex align-items-center justify-content-between">
+                            <label class="d-flex align-items-center justify-content-between" style="cursor:pointer;">
                                 <div class="d-flex align-items-center gap-2">
                                     <span class="color-dot" style="background:#f06fa8;"></span>
                                     <span>Pink (4)</span>
                                 </div>
                                 <input type="checkbox" class="form-check-input">
-                            </div>
+                            </label>
 
                         </div>
                     </div>
@@ -650,12 +356,11 @@
         </div>
 
         <div class="offcanvas-footer border-top p-3 d-flex gap-2">
-            <button class="btn btn-outline-dark rounded-pill flex-grow-1">Clear All</button>
-            <button class="btn btn-primary rounded-pill flex-grow-1" id="applyFilterBtn">Apply (2)</button>
+            <button class="btn btn-outline-dark rounded-pill flex-grow-1" onclick="clearAllFilters()">Clear All</button>
+            <button class="btn btn-primary rounded-pill flex-grow-1" id="applyFilterBtn" onclick="applyPriceFilter()">Apply</button>
         </div>
     </div>
 
-    <script src="js/jquery-4.0.0.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>

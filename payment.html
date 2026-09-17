@@ -3,34 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment - Emmable</title>
+    <title>Payment | Emmable</title>
+    <meta name="description" content="Choose a payment method to complete your Emmable order.">
+    <link rel="canonical" href="https://furniture-e-commerce-sand.vercel.app/payment.html">
+    <meta property="og:title" content="Payment | Emmable">
+    <meta property="og:description" content="Choose a payment method to complete your Emmable order.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://furniture-e-commerce-sand.vercel.app/payment.html">
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/yomna-style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header class="border-bottom">
+    <header class="border-bottom sticky-top bg-white">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between py-3 gap-4">
                 <a href="index.html" class="navbar-brand fw-bold fs-4 text-dark text-nowrap">Emmable</a>
+
                 <div class="input-group flex-grow-1 search-box">
-                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable">
+                    <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
                     <span class="input-group-text bg-light border-0">
-                        <i class="fa-solid fa-magnifying-glass text-primary"></i>
+                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
                     </span>
                 </div>
-                <div class="d-flex align-items-center gap-3 fs-5">
-                    <a href="shopping.html" class="text-dark"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="#" class="text-dark"><i class="fa-regular fa-user"></i></a>
+
+                <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
+
+                    <!--زرار الكارت -->
+                    <div class="position-relative">
+                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+
+                        <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
+                            <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
+
+                            <div id="cartItemsContainer"></div>
+
+                            <!-- الإجمالي وزراير الدفع -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <span class="fw-semibold">Subtotal</span>
+                                <span class="fw-bold" id="cartSubtotal">$36.88</span>
+                            </div>
+
+                            <a href="shipping.html" class="btn btn-primary w-100 rounded-pill mb-2">Checkout</a>
+                            <a href="shopping.html" class="btn btn-outline-dark w-100 rounded-pill">View Cart</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center py-3 border-top d-none d-md-flex">
+
+            <div class="d-flex justify-content-between align-items-center py-3 border-top">
                 <ul class="nav">
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
                 </ul>
+
                 <div class="d-flex gap-4 text-muted small">
                     <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
                     <a href="#" class="text-muted text-decoration-none">Track your order</a>
@@ -47,6 +78,10 @@
                 <div class="d-flex align-items-start mb-4 position-relative">
                     <div class="step-circle bg-purple text-white rounded-circle d-flex justify-content-center align-items-center me-3 fs-5 fw-bold">2</div>
                     <h2 class="fw-bold m-0 mt-1">Payment</h2>
+                </div>
+
+                <div class="mb-3">
+                    <a href="shipping.html" class="text-muted small text-decoration-none"><i class="fa-solid fa-arrow-left me-1"></i>Back to Shipping</a>
                 </div>
 
                 <div class="ps-5 ms-2 mb-5">
@@ -131,7 +166,7 @@
                     <h5 class="fw-bold mb-4">Order Summary</h5>
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Subtotal</span>
-                        <span class="fw-semibold">$942.00</span>
+                        <span class="fw-semibold" id="summarySubtotal">$0.00</span>
                     </div>
                     <div class="d-flex justify-content-between mb-3">
                         <span class="text-muted">Tax</span>
@@ -143,7 +178,7 @@
                     </div>
                     <div class="d-flex justify-content-between mb-4 mt-2">
                         <span class="fw-bold fs-5">Total</span>
-                        <span class="fw-bold fs-5">$46.77</span>
+                        <span class="fw-bold fs-5" id="summaryTotal">$0.00</span>
                     </div>
                     <button type="submit" form="payment-form" class="btn bg-purple text-white w-100 py-3 rounded-pill fw-bold fs-6">Next</button>
                 </div>
@@ -151,7 +186,8 @@
         </div>
     </main>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/yomna-script.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
