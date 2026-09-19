@@ -94,4 +94,3 @@ Frontend Developer focused on building responsive and interactive web experience
 ### Project Links
 
 - 🌐 [Live Demo](https://furniture-e-commerce-sand.vercel.app/)
--  [Moustafa LinkedIn](https://www.linkedin.com/in/moustafaweb)
