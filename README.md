@@ -40,19 +40,19 @@ The project focuses on creating a realistic frontend shopping experience, from b
 
 ### Home Page
 
-![Home Page](Screen/home.png)
+![Home Page](furniture-readme-screens/home.png)
 
 ### Products Page
 
-![Products Page](Screen/products.png)
+![Products Page](furniture-readme-screens/products.png)
 
 ### Product Details
 
-![Product Details](Screen/product-details.png)
+![Product Details](furniture-readme-screens/product-details.png)
 
 ### Shopping Cart
 
-![Shopping Cart](Screen/cart.png)
+![Shopping Cart](furniture-readme-screens/cart.png)
 
 ---
 
