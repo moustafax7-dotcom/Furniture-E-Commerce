@@ -88,6 +88,10 @@ Then open `index.html` in your browser.
 ## About
 
 **Moustafa Mahmoud**
+**Moustafa Mahmoud**
+**Moustafa Mahmoud**
+**Moustafa Mahmoud**
+**Moustafa Mahmoud**
 
 Frontend Developer focused on building responsive and interactive web experiences with **HTML, CSS, JavaScript, Bootstrap, and React**.
 
