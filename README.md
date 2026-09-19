@@ -14,7 +14,7 @@ The project focuses on creating a realistic frontend shopping experience, from b
 
 ## Website Preview
 
-![Emmable Furniture E-Commerce](screenshots/home.png)
+![Emmable Furniture E-Commerce](Screen/home.png)
 
 **Live Demo:** https://furniture-e-commerce-sand.vercel.app/
 
@@ -40,19 +40,19 @@ The project focuses on creating a realistic frontend shopping experience, from b
 
 ### Home Page
 
-![Home Page](screenshots/home.png)
+![Home Page](Screen/home.png)
 
 ### Products Page
 
-![Products Page](screenshots/products.png)
+![Products Page](Screen/products.png)
 
 ### Product Details
 
-![Product Details](screenshots/product-details.png)
+![Product Details](Screen/product-details.png)
 
 ### Shopping Cart
 
-![Shopping Cart](screenshots/cart.png)
+![Shopping Cart](Screen/cart.png)
 
 ---
 
@@ -94,4 +94,4 @@ Frontend Developer focused on building responsive and interactive web experience
 ### Project Links
 
 - 🌐 [Live Demo](https://furniture-e-commerce-sand.vercel.app/)
-- 💼 [LinkedIn](https://www.linkedin.com/in/moustafaweb)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/moustafaweb)
