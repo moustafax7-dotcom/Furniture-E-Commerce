@@ -10,7 +10,7 @@
 
 **Emmable** is a responsive furniture e-commerce website built with **HTML, CSS, JavaScript, Bootstrap, and Font Awesome**.
 
-The project focuses on creating a realistic frontend shopping experience, including product browsing, search and filtering, cart management, and a multi-step checkout flow.
+The project focuses on creating a realistic frontend shopping experience, from browsing and filtering products to managing a persistent shopping cart and completing a multi-step checkout flow.
 
 ## Website Preview
 
@@ -25,12 +25,11 @@ The project focuses on creating a realistic frontend shopping experience, includ
 - Responsive design for mobile, tablet, and desktop
 - Sticky navigation header
 - Dynamic product listing and product details
-- Product search, filtering, and sorting
+- Product search, category filtering, price filtering, and sorting
 - Shopping cart with `localStorage` persistence
 - Add, remove, increase, and decrease product quantities
-- Dynamic cart counter and totals
-- Multi-step checkout flow
-- Form validation
+- Dynamic cart counter and order totals
+- Multi-step checkout flow with validation
 - Empty-cart protection
 - Toast notifications for cart actions
 - SEO-friendly page metadata
@@ -59,17 +58,16 @@ The project focuses on creating a realistic frontend shopping experience, includ
 
 ## Testing
 
-The project was tested across all 8 pages, including:
+The project was tested across all 8 pages, covering:
 
-- Navigation and page flow
+- Navigation and complete shopping flow
 - Product search, filtering, and sorting
 - Cart functionality and persistence
-- Checkout validation
-- Empty-cart protection
+- Checkout validation and empty-cart protection
 - Responsive layouts
 - Browser regression testing
 
-Final testing covered multiple screen sizes from **360px to 1440px**, with **0 console errors, 0 failed requests, and 0 broken images**.
+Testing covered screen sizes from **360px to 1440px**, with **0 console errors, 0 failed requests, and 0 broken images**.
 
 ---
 
