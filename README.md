@@ -140,3 +140,26 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/moustafax7-dotcom/Furniture-E-Commerce.git
+
+Open the project folder:
+
+cd Furniture-E-Commerce
+
+Then open index.html in your browser.
+
+No backend or build setup is required.
+
+
+---
+
+👨‍💻 About
+
+Moustafa Mahmoud
+
+Frontend Developer focused on building responsive and interactive web experiences with HTML, CSS, JavaScript, Bootstrap, and React.
+
+Project Links
+
+🌐 Live Demo
+
+💼 LinkedIn
