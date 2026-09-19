@@ -1,4 +1,10 @@
-# Emmable — Furniture E-Commerce
+# Emmable — Furniture E-Commerce 🛋️
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Font Awesome](https://img.shields.io/badge/Font%20Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)
 
 ## Project Overview
 
@@ -28,17 +34,6 @@ The project focuses on creating a realistic frontend shopping experience, includ
 - Empty-cart protection
 - Toast notifications for cart actions
 - SEO-friendly page metadata
-
----
-
-## Tech Stack
-
-- **HTML5**
-- **CSS3**
-- **JavaScript (Vanilla)**
-- **Bootstrap 5**
-- **Font Awesome**
-- **LocalStorage**
 
 ---
 
@@ -89,8 +84,6 @@ Open the project folder:
 `cd Furniture-E-Commerce`
 
 Then open `index.html` in your browser.
-
-No backend or build setup is required.
 
 ---
 
