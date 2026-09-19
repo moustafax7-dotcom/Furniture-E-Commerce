@@ -138,28 +138,25 @@ Bootstrap's responsive grid and utility classes are used alongside custom CSS wh
 
 Clone the repository:
 
-```bash
-git clone https://github.com/moustafax7-dotcom/Furniture-E-Commerce.git
+`git clone https://github.com/moustafax7-dotcom/Furniture-E-Commerce.git`
 
 Open the project folder:
 
-cd Furniture-E-Commerce
+`cd Furniture-E-Commerce`
 
-Then open index.html in your browser.
+Then open `index.html` in your browser.
 
 No backend or build setup is required.
 
-
 ---
 
-👨‍💻 About
+## 👨‍💻 About
 
-Moustafa Mahmoud
+**Moustafa Mahmoud**
 
-Frontend Developer focused on building responsive and interactive web experiences with HTML, CSS, JavaScript, Bootstrap, and React.
+Frontend Developer focused on building responsive and interactive web experiences with **HTML, CSS, JavaScript, Bootstrap, and React**.
 
-Project Links
+### Project Links
 
-🌐 Live Demo
-
-💼 LinkedIn
+- 🌐 [Live Demo](https://furniture-e-commerce-sand.vercel.app/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/moustafaweb)
