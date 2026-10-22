@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<meta name="robots" content="noindex,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment | Emmable</title>
     <meta name="description" content="Choose a payment method to complete your Emmable order.">
@@ -23,23 +24,19 @@
                 <div class="input-group flex-grow-1 search-box">
                     <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
                     <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
-                    <span class="input-group-text bg-light border-0">
-                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
-                    </span>
+                    <button type="button" class="input-group-text bg-light border-0" onclick="performSiteSearch()" aria-label="Search"><i class="fa-solid fa-magnifying-glass text-primary" aria-hidden="true"></i></button>
                 </div>
 
                 <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
 
-                    <!--زرار الكارت -->
                     <div class="position-relative">
-                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="shopping.html" class="text-dark p-2" id="cartToggle" aria-label="Open cart" aria-controls="cartDropdown"><i class="fa-solid fa-cart-shopping"></i></a>
 
                         <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
                             <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
 
                             <div id="cartItemsContainer"></div>
 
-                            <!-- الإجمالي وزراير الدفع -->
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="fw-semibold">Subtotal</span>
                                 <span class="fw-bold" id="cartSubtotal">$36.88</span>
@@ -50,7 +47,6 @@
                         </div>
                     </div>
 
-                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
 
@@ -59,12 +55,12 @@
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="index.html#contact">About</a></li>
                 </ul>
 
                 <div class="d-flex gap-4 text-muted small">
-                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
-                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+
+                    <a href="order-success.html" class="text-muted text-decoration-none">Demo order</a>
                 </div>
             </div>
         </div>
@@ -87,70 +83,10 @@
                 <div class="ps-5 ms-2 mb-5">
                     <h5 class="mb-4">Choose Payment method</h5>
 
-                    <form id="payment-form" novalidate>
-                        <div class="border rounded-3 p-4 mb-4 border-purple shadow-sm">
-                            <div class="d-flex justify-content-between align-items-center mb-4">
-                                <div class="form-check m-0">
-                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="creditCardRadio" checked>
-                                    <label class="form-check-label fw-semibold" for="creditCardRadio">Credit Card</label>
-                                </div>
-                                <div class="d-flex gap-2">
-                                    <i class="fa-brands fa-cc-mastercard fs-3"></i>
-                                    <i class="fa-brands fa-cc-visa fs-3 text-primary"></i>
-                                    <i class="fa-brands fa-cc-amex fs-3 text-info"></i>
-                                </div>
-                            </div>
-
-                            <div class="row g-3" id="creditCardForm">
-                                <div class="col-12">
-                                    <input type="text" class="form-control py-2" id="cardNumber" placeholder="Card number" maxlength="19" required>
-                                </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control py-2" id="cardName" placeholder="Name on card" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="form-select py-2" id="expMonth" required>
-                                        <option value="" selected disabled>Month</option>
-                                        <option value="01">January</option>
-                                        <option value="02">February</option>
-                                        <option value="03">March</option>
-                                        <option value="04">April</option>
-                                        <option value="05">May</option>
-                                        <option value="06">June</option>
-                                        <option value="07">July</option>
-                                        <option value="08">August</option>
-                                        <option value="09">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <select class="form-select py-2" id="expYear" required>
-                                        <option value="" selected disabled>Year</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2029">2029</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4 position-relative">
-                                    <input type="text" class="form-control py-2 pe-5" id="ccv" placeholder="CCV" maxlength="4" required>
-                                    <i class="fa-regular fa-circle-question position-absolute top-50 end-0 translate-middle-y me-3 text-muted"></i>
-                                </div>
-                            </div>
-                        </div>
-
+                    <form id="payment-form">
                         <div class="border rounded-3 p-4">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="form-check m-0">
-                                    <input class="form-check-input custom-radio" type="radio" name="paymentMethod" id="paypalRadio">
-                                    <label class="form-check-label fw-semibold" for="paypalRadio">Paypal</label>
-                                </div>
-                                <i class="fa-brands fa-cc-paypal fs-3 text-primary"></i>
-                            </div>
+                            <h3 class="h5">Demo checkout</h3>
+                            <p class="mb-0">Try the complete checkout flow. No payment is collected and no items are shipped. You do not need to enter card details.</p>
                         </div>
                     </form>
                 </div>
@@ -186,7 +122,8 @@
         </div>
     </main>
 
-    <script src="js/popper.min.js"></script>
+    <footer id="contact" class="bg-light border-top mt-5 py-4"><div class="container d-flex justify-content-between flex-wrap gap-3"><div><h2 class="h5">Emmable</h2><p class="text-muted small mb-0">A furniture storefront demo. Sample products; no real payments or deliveries.</p></div><a href="https://github.com/moustafax7-dotcom/Furniture-E-Commerce">View project on GitHub</a></div></footer>
+<script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
 </body>

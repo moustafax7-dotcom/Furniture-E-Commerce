@@ -25,23 +25,19 @@
                 <div class="input-group flex-grow-1 search-box">
                     <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
                     <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
-                    <span class="input-group-text bg-light border-0">
-                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
-                    </span>
+                    <button type="button" class="input-group-text bg-light border-0" onclick="performSiteSearch()" aria-label="Search"><i class="fa-solid fa-magnifying-glass text-primary" aria-hidden="true"></i></button>
                 </div>
 
                 <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
 
-                    <!--زرار الكارت -->
                     <div class="position-relative">
-                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="shopping.html" class="text-dark p-2" id="cartToggle" aria-label="Open cart" aria-controls="cartDropdown"><i class="fa-solid fa-cart-shopping"></i></a>
 
                         <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
                             <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
 
                             <div id="cartItemsContainer"></div>
 
-                            <!-- الإجمالي وزراير الدفع -->
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="fw-semibold">Subtotal</span>
                                 <span class="fw-bold" id="cartSubtotal">$36.88</span>
@@ -52,7 +48,6 @@
                         </div>
                     </div>
 
-                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
 
@@ -61,12 +56,12 @@
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="index.html#contact">About</a></li>
                 </ul>
 
                 <div class="d-flex gap-4 text-muted small">
-                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
-                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+
+                    <a href="order-success.html" class="text-muted text-decoration-none">Demo order</a>
                 </div>
             </div>
         </div>
@@ -74,9 +69,8 @@
 
     <main class="container py-5">
 
-        <h2 class="fw-bold mb-4">Living Room</h2>
+        <h1 class="fw-bold mb-4">Furniture collection</h1>
 
-        <!-- صف أيقونات الفئات -->
         <div class="d-flex gap-3 pb-4 mb-4 border-bottom overflow-auto">
             <a href="products.html?category=sofa%20recliner" class="d-flex align-items-center gap-2 bg-light rounded-pill py-2 px-3 text-dark text-decoration-none flex-shrink-0">
                 <img src="images/image6.png" class="rounded-circle category-icon" alt="Sofa Recliner">
@@ -100,76 +94,11 @@
             </a>
         </div>
 
-        <!-- أفضل المنتجات مبيعا -->
-        <h3 class="fw-bold mb-4">Current Best Selling Products</h3>
-
-        <div class="row g-4 mb-5 pb-4 border-bottom">
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=1" class="text-decoration-none text-dark">
-                    <img src="images/image25.png" class="img-fluid rounded-3 mb-3" alt="C Side Table">
-                    <p class="mb-1 fw-semibold">C Side Table</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$10.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(1, 1)">
-                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
-                </button>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=2" class="text-decoration-none text-dark">
-                    <img src="images/image4.png" class="img-fluid rounded-3 mb-3" alt="Marigold Sofa">
-                    <p class="mb-1 fw-semibold">Marigold Sofa</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$199.90</span> <span class="text-muted text-decoration-line-through small">$249.90</span></p>
-                </a>
-                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(2, 1)">
-                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
-                </button>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=3" class="text-decoration-none text-dark">
-                    <img src="images/image8.png" class="img-fluid rounded-3 mb-3" alt="Copper Chandelier">
-                    <p class="mb-1 fw-semibold">Copper Chandelier</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span></p>
-                </a>
-                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(3, 1)">
-                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
-                </button>
-            </div>
-
-            <div class="col-6 col-md-3">
-                <a href="product-details.html?id=4" class="text-decoration-none text-dark">
-                    <img src="images/image21.png" class="img-fluid rounded-3 mb-3" alt="Dining chairs">
-                    <p class="mb-1 fw-semibold">Dining chairs</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">4.8 (102 reviews)</span>
-                    </p>
-                    <p class="mb-0"><span class="fw-bold">$18.90</span> <span class="text-muted text-decoration-line-through small">$23.21</span></p>
-                </a>
-                <button class="btn btn-dark btn-sm w-100 mt-2 rounded-pill" onclick="addToCart(4, 1)">
-                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
-                </button>
-            </div>
-        </div>
-
-        <!-- شريط الترتيب والفلتر -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <div class="d-flex gap-3">
+        <h2 class="h3 fw-bold mb-4">Featured products</h2><div class="row g-4 mb-5" id="featuredProducts"></div>
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+<div class="d-flex gap-3">
                 <div class="dropdown">
-                    <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" id="sortLabel">Sort by: Populer</button>
+                    <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" data-bs-toggle="dropdown" id="sortLabel">Sort by: Featured</button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#" onclick="applySort(''); return false;">Featured</a></li>
                         <li><a class="dropdown-item" href="#" onclick="applySort('price-asc'); return false;">Price: Low to High</a></li>
@@ -183,7 +112,6 @@
             <p class="text-muted mb-0" id="productsCount">24 products</p>
         </div>
 
-        <!-- جريد المنتجات -->
         <div class="row g-4 mb-5" id="productsGrid"></div>
 
         <div id="productsEmptyState" class="text-center py-5 d-none">
@@ -193,26 +121,12 @@
             <button class="btn btn-outline-dark rounded-pill px-4" onclick="clearAllFilters()">Clear Filters</button>
         </div>
 
-        <!-- ترقيم الصفحات -->
-        <nav aria-label="Products pagination" id="productsPagination">
-            <ul class="pagination justify-content-center">
-                <li class="page-item active"><a class="page-link rounded-circle mx-1" href="#">1</a></li>
-                <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">2</a></li>
-                <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">3</a></li>
-                <li class="page-item disabled"><span class="page-link border-0">...</span></li>
-                <li class="page-item"><a class="page-link rounded-circle mx-1" href="#">9</a></li>
-                <li class="page-item"><a class="page-link rounded-circle mx-1" href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
-            </ul>
-        </nav>
-
     </main>
 
-    
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="filterDrawer">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filterDrawer" aria-label="Filter products">
         <div class="offcanvas-header border-bottom">
             <h5 class="fw-bold mb-0">Filter</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close filters"></button>
         </div>
 
         <div class="offcanvas-body">
@@ -228,140 +142,20 @@
                     <div id="priceCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
                         <div class="accordion-body px-0">
                             <p class="text-muted small mb-3" id="priceRangeLabel">Up to $200.00</p>
-                            <input type="range" class="form-range" min="0" max="200" value="200" id="priceRange">
+                            <input type="range" class="form-range" min="0" max="200" value="200" id="priceRange" aria-label="priceRange">
                         </div>
                     </div>
                 </div>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#brandCollapse">
-                            Brand
-                        </button>
-                    </h2>
-                    <div id="brandCollapse" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-                        <div class="accordion-body px-0 text-muted small">
-                            Brand filter options here
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#specCollapse">
-                            Specification
-                        </button>
-                    </h2>
-                    <div id="specCollapse" class="accordion-collapse collapse" data-bs-parent="#filterAccordion">
-                        <div class="accordion-body px-0 text-muted small">
-                            Specification filter options here
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed fw-bold px-0" type="button" data-bs-toggle="collapse" data-bs-target="#colorCollapse">
-                            Color
-                        </button>
-                    </h2>
-                    <div id="colorCollapse" class="accordion-collapse collapse show" data-bs-parent="#filterAccordion">
-                        <div class="accordion-body px-0">
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#fff; border:1px solid #ddd;"></span>
-                                    <span>White (210)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input" checked>
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#7b4b28;"></span>
-                                    <span>Brown (34)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input" checked>
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#000;"></span>
-                                    <span>Black (64)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#ccc;"></span>
-                                    <span>Grey (34)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#e15b4a;"></span>
-                                    <span>Red (12)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#2455d1;"></span>
-                                    <span>Blue (23)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#4fc3c9;"></span>
-                                    <span>Tosca (7)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#5a9e3f;"></span>
-                                    <span>Green (23)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between mb-3" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#f0a52a;"></span>
-                                    <span>Orange (12)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                            <label class="d-flex align-items-center justify-content-between" style="cursor:pointer;">
-                                <div class="d-flex align-items-center gap-2">
-                                    <span class="color-dot" style="background:#f06fa8;"></span>
-                                    <span>Pink (4)</span>
-                                </div>
-                                <input type="checkbox" class="form-check-input">
-                            </label>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="offcanvas-footer border-top p-3 d-flex gap-2">
+                </div></div>
+<div class="offcanvas-footer border-top p-3 d-flex gap-2">
             <button class="btn btn-outline-dark rounded-pill flex-grow-1" onclick="clearAllFilters()">Clear All</button>
             <button class="btn btn-primary rounded-pill flex-grow-1" id="applyFilterBtn" onclick="applyPriceFilter()">Apply</button>
         </div>
     </div>
 
-    <script src="js/popper.min.js"></script>
+    <footer id="contact" class="bg-light border-top mt-5 py-4"><div class="container d-flex justify-content-between flex-wrap gap-3"><div><h2 class="h5">Emmable</h2><p class="text-muted small mb-0">A furniture storefront demo. Sample products; no real payments or deliveries.</p></div><a href="https://github.com/moustafax7-dotcom/Furniture-E-Commerce">View project on GitHub</a></div></footer>
+<script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
 </body>

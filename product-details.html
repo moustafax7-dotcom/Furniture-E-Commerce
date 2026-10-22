@@ -25,23 +25,19 @@
                 <div class="input-group flex-grow-1 search-box">
                     <label for="siteSearchInput" class="visually-hidden">Search in Emmable</label>
                     <input type="text" class="form-control bg-light border-0" placeholder="Search in Emmable" id="siteSearchInput">
-                    <span class="input-group-text bg-light border-0">
-                        <i class="fa-solid fa-magnifying-glass text-primary" style="cursor:pointer;" onclick="performSiteSearch()"></i>
-                    </span>
+                    <button type="button" class="input-group-text bg-light border-0" onclick="performSiteSearch()" aria-label="Search"><i class="fa-solid fa-magnifying-glass text-primary" aria-hidden="true"></i></button>
                 </div>
 
                 <div class="d-flex align-items-center gap-3 fs-5 flex-shrink-0">
 
-                    <!--زرار الكارت -->
                     <div class="position-relative">
-                        <a href="#" class="text-dark p-2" id="cartToggle"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="shopping.html" class="text-dark p-2" id="cartToggle" aria-label="Open cart" aria-controls="cartDropdown"><i class="fa-solid fa-cart-shopping"></i></a>
 
                         <div class="cart-dropdown bg-white shadow rounded-3 p-3 position-absolute top-100 end-0 mt-2 d-none" id="cartDropdown">
                             <p class="fw-bold mb-3">Cart (<span id="cartCount">0</span>)</p>
 
                             <div id="cartItemsContainer"></div>
 
-                            <!-- الإجمالي وزراير الدفع -->
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="fw-semibold">Subtotal</span>
                                 <span class="fw-bold" id="cartSubtotal">$36.88</span>
@@ -52,7 +48,6 @@
                         </div>
                     </div>
 
-                    <a href="#" class="text-dark p-2"><i class="fa-regular fa-user"></i></a>
                 </div>
             </div>
 
@@ -61,18 +56,16 @@
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Room <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Product <i class="fa-solid fa-chevron-down small"></i></a></li>
                     <li class="nav-item"><a class="nav-link text-dark px-2" href="products.html">Collections</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark px-2" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark px-2" href="index.html#contact">About</a></li>
                 </ul>
 
                 <div class="d-flex gap-4 text-muted small">
-                    <a href="#" class="text-muted text-decoration-none"><i class="fa-solid fa-location-dot me-1"></i>Store Location</a>
-                    <a href="#" class="text-muted text-decoration-none">Track your order</a>
+
+                    <a href="order-success.html" class="text-muted text-decoration-none">Demo order</a>
                 </div>
             </div>
         </div>
     </header>
-
-
 
     <main class="container py-5" id="productDetailsRoot">
 
@@ -91,7 +84,7 @@
         <div class="row g-3 g-lg-5 mb-5">
             <div class="col-lg-6">
                 <img id="detailImage" src="images/studio chair-4.jpg" class="img-fluid rounded-3 mb-3" alt="MALSKÄR/ LOBERGET Chair">
-                
+
             </div>
 
             <div class="col-lg-6">
@@ -100,24 +93,16 @@
                 <div class="d-flex align-items-center gap-3 mb-4">
                     <span class="fs-2 fw-bold" id="detailPrice">$28.88</span>
                     <span class="text-muted text-decoration-line-through fs-6 d-none" id="detailOldPrice">$0.00</span>
-                    <span class="text-warning">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        <span class="text-dark small">4.8 (102 reviews)</span>
-                    </span>
+                    <span class="text-muted small">Sample collection</span>
                 </div>
-                <p class="text-muted small mb-4">806 people have purchased this product</p>
+                <p class="text-muted small mb-4">Explore our sample furniture collection.</p>
 
                 <hr class="mb-4">
 
-                <p class="fw-semibold mb-2">Color <span class="text-muted fw-normal">(Black)</span></p>
-                <div class="d-flex gap-2 mb-4">
-                    <img src="images/Bookcase.jpg" class="rounded-3 color-swatch" alt="Black">
-                    <img src="images/chair.jpg" class="rounded-3 color-swatch" alt="Red">
-                    <img src="images/sofe set.jpg" class="rounded-3 color-swatch border border-dark" alt="White">
-                </div>
+                <p class="text-muted small">Finish shown in the product photo.</p>
 
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <p class="fw-semibold mb-0">Stock: 12 left</p>
+                    <p class="fw-semibold mb-0">Quantity (maximum 99)</p>
                     <div class="input-group quantity-box-lg">
                         <button class="btn btn-outline-secondary" type="button" id="detailQtyMinus" onclick="changeDetailQty(-1)" aria-label="Decrease quantity" disabled>-</button>
                         <input type="text" class="form-control text-center" id="detailQtyInput" value="1" readonly aria-label="Quantity">
@@ -126,9 +111,7 @@
                 </div>
 
                 <div class="d-flex gap-3">
-                    <button class="btn btn-outline-secondary rounded-circle wishlist-btn">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+
                     <button class="btn btn-primary rounded-pill flex-grow-1 py-3" id="detailAddToCartBtn" onclick="addDetailProductToCart()">
                         <i class="fa-solid fa-cart-shopping me-2"></i>Add to Cart
                     </button>
@@ -139,16 +122,16 @@
                 <div class="d-flex align-items-start gap-3 mb-3">
                     <i class="fa-solid fa-truck text-muted mt-1"></i>
                     <div>
-                        <p class="fw-semibold mb-0">Shipping costs start from $24</p>
-                        <p class="text-muted small mb-0">See details here</p>
+                        <p class="fw-semibold mb-0">Demo shipping: $14 per order</p>
+                        <p class="text-muted small mb-0">Shown in your order summary</p>
                     </div>
                 </div>
 
                 <div class="d-flex align-items-start gap-3">
                     <i class="fa-solid fa-store text-muted mt-1"></i>
                     <div>
-                        <p class="fw-semibold mb-0">Find in store</p>
-                        <p class="text-muted small mb-0">Please select a pick-up store in your area</p>
+                        <p class="fw-semibold mb-0">Online collection</p>
+                        <p class="text-muted small mb-0">Store pickup is unavailable in this demo</p>
                     </div>
                 </div>
             </div>
@@ -163,7 +146,7 @@
                 </h2>
                 <div id="detailsCollapse" class="accordion-collapse collapse show" data-bs-parent="#productAccordion">
                     <div class="accordion-body text-muted">
-                        A lightweight moisturizer designed to minimize irritations and provide much needed moisture for healthy looking skin. Delicate Daily Moisturizer contains an important blend of botanicals and extracts making your skin healthy and looking its best.
+                        Browse the product photo and choose a quantity to add this sample item to your cart.
                     </div>
                 </div>
             </div>
@@ -171,12 +154,12 @@
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#dimentionsCollapse">
-                        Size & dimentions
+                        Size & dimensions
                     </button>
                 </h2>
                 <div id="dimentionsCollapse" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
                     <div class="accordion-body text-muted">
-                        Width: 60cm, Depth: 55cm, Height: 90-100cm (adjustable)
+                        Dimensions are not supplied for this sample product.
                     </div>
                 </div>
             </div>
@@ -189,7 +172,7 @@
                 </h2>
                 <div id="reviewsCollapse" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
                     <div class="accordion-body text-muted">
-                        4.8 out of 5 based on 102 reviews
+                        No customer reviews yet.
                     </div>
                 </div>
             </div>
@@ -203,14 +186,8 @@
 
     </main>
 
-
-
-
-
-
-
-
-    <script src="js/popper.min.js"></script>
+    <footer id="contact" class="bg-light border-top mt-5 py-4"><div class="container d-flex justify-content-between flex-wrap gap-3"><div><h2 class="h5">Emmable</h2><p class="text-muted small mb-0">A furniture storefront demo. Sample products; no real payments or deliveries.</p></div><a href="https://github.com/moustafax7-dotcom/Furniture-E-Commerce">View project on GitHub</a></div></footer>
+<script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/main.js"></script>
 </body>

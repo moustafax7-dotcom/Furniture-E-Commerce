@@ -14,7 +14,7 @@ The project focuses on creating a realistic frontend shopping experience, from b
 
 ## Website Preview
 
-![Emmable Furniture E-Commerce](Screen/home.png)
+![Emmable Furniture E-Commerce](furniture-readme-screens/home.png)
 
 **Live Demo:** https://furniture-e-commerce-sand.vercel.app/
 
@@ -46,28 +46,19 @@ The project focuses on creating a realistic frontend shopping experience, from b
 
 ![Products Page](furniture-readme-screens/products.png)
 
-### Product Details
-
-![Product Details](furniture-readme-screens/product-details.png)
-
 ### Shopping Cart
 
 ![Shopping Cart](furniture-readme-screens/cart.png)
 
 ---
 
-## Testing
+## Validation
 
-The project was tested across all 8 pages, covering:
+Run `node tests/storefront.test.cjs` for cart, category, and checkout regression checks.
 
-- Navigation and complete shopping flow
-- Product search, filtering, and sorting
-- Cart functionality and persistence
-- Checkout validation and empty-cart protection
-- Responsive layouts
-- Browser regression testing
+Browser layout, keyboard interaction, and performance measurements still need verification. The automated checks do not establish full browser or accessibility coverage.
 
-Testing covered screen sizes from **360px to 1440px**, with **0 console errors, 0 failed requests, and 0 broken images**.
+This is a frontend demo. Checkout stores a demo order summary in the current browser session; it does not process payments, send email, or create server-side orders. Shipping form values are kept in session storage and cleared after checkout. Do not enter real personal information.
 
 ---
 
@@ -94,3 +85,7 @@ Frontend Developer focused on building responsive and interactive web experience
 ### Project Links
 
 - 🌐 [Live Demo](https://furniture-e-commerce-sand.vercel.app/)
+
+## Credits
+
+The original project credits Designspace for the visual design. Existing product imagery is retained from the original repository.
