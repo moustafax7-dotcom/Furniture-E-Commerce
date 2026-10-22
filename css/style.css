@@ -1,11 +1,8 @@
-/* ============================================================ */
-/*  كود style.css الأصلي (products.html / product-details.html)  */
-/* ============================================================ */
-/* <------------index----------> */
+
+
 * {
   box-sizing: border-box;
   }
-  
 
 html{
   scroll-behavior: smooth;
@@ -18,17 +15,14 @@ html{
     background: white;
   }
 
-
  body {
   margin: 0;
-  overflow-x: hidden;
-}
 
+}
 
 .search-box input {
 outline: none;
 }
-
 
 .hero-image img {
 height: 500px;
@@ -57,11 +51,9 @@ text-decoration: none;
 background-color: #795548;
 }
 
-
 .category-img:hover {
 transform: scale(1.05);
 }
-
 
 .category-menu li {
 cursor: pointer;
@@ -87,7 +79,6 @@ color: #d97706;
 font-size: 14px;
 }
 
-
 .collection-content {
 width: 70%;
 margin: auto;
@@ -108,7 +99,6 @@ object-fit: cover;
 font-weight: bold;
 }
 
-
 .brand-img {
     width: 100%;
     max-width: 250px;
@@ -124,7 +114,6 @@ transition: 0.3s;
 .all-brands:hover {
 color: #8d6e63;
 }
-
 
 .news-img {
 height: 250px;
@@ -172,7 +161,7 @@ gap: 15px;
 .payments span {
 font-size: 14px;
 }
-/* <------------order-success-----------> */
+
 .check-icon {
     width: 70px;
     height: 70px;
@@ -198,7 +187,6 @@ font-size: 14px;
     color: white;
 }
 
-/* <------------product-----------> */
 .category-img {
     height: 100px;
     object-fit: cover;
@@ -236,7 +224,7 @@ font-size: 14px;
     border-radius: 50%;
     display: inline-block;
 }
-/* <------------2-----------> */
+
 .product-thumb {
     width: 70px;
     height: 60px;
@@ -260,10 +248,6 @@ font-size: 14px;
     height: 55px;
 }
 
-
-/* ============================================================ */
-/*  كود madlen-style.css (صفحات الكارت والشيبينج)                  */
-/* ============================================================ */
 body {
   background-color: #f5f5f7;
   font-family: Arial, Helvetica, sans-serif;
@@ -333,11 +317,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(108, 75, 209, 0.25);
 }
 
-/* ============================================================ */
-/*  كود yomna-style.css (صفحات الدفع والمراجعة)                   */
-/*  ملحوظة: .product-thumb اتشالت من هنا عشان تعارضت مع النسخة    */
-/*  الأصلية في style.css (70x60) - الأصلية هي اللي فضلت شغالة      */
-/* ============================================================ */
 :root {
     --main-brand-color: #5343C2;
 }
@@ -393,13 +372,6 @@ body {
     width: 180px;
 }
 
-
-/* ============================================================ */
-/*  كود media.css (الريسبونسف - Media Queries)                    */
-/*  لازم يفضل ده آخر حاجة في الملف عشان ياخد أولوية صح             */
-/* ============================================================ */
-/* <---------------------------index-------------------------> */
-
 @media (max-width: 1200px) {
 
     .collection-img {
@@ -407,8 +379,6 @@ body {
     }
 }
 
-/* <----------------TABLET--------------> */
-   
 @media (max-width: 991px) {
 
     .top-bar .container {
@@ -421,17 +391,14 @@ body {
         height: 485px;
         padding-top: 10px;
    }
-    
+
     .row-cols-md-5{
         width: 90%;
     }
 }
 
-  /* <----------- MOBILE ----------------> */
-
 @media (max-width: 767px) {
 
-    /* Top Bar */
     .top-bar .container {
         padding: 2px 12px;
         font-size: 8px;
@@ -439,7 +406,6 @@ body {
         justify-content: space-between;
     }
 
-    /* First Navbar */
     .main-nav .container {
         padding: 0 12px;
         flex-wrap: nowrap;
@@ -450,7 +416,6 @@ body {
         font-size: 11px;
     }
 
-   
     .menu-nav .menu li {
         font-size: 12px;
         white-space: nowrap;
@@ -468,38 +433,28 @@ body {
         font-size: 15px;
     }
 
-
     .hero-title {
         font-size: 33px;
     }
-
 
     .shop-btn {
         font-size: 10px;
     }
 
-
-    /* New Products */
     .category-menu li {
         font-size: 11px;
         padding: 6px 13px;
     }
 
-
-
-
-    /* Collection */
     .collection-content {
         padding: 30px 15px;
         text-align: center;
     }
 
-    /* Brands */
    .row-cols-2 {
     width: 90%;
    }
 
-    /* Footer */
     footer .row > .col-lg-5 {
         text-align: center;
     }
@@ -530,4 +485,30 @@ body {
     width: 80px;
     height: 80px;
     object-fit: cover;
+}
+
+/* Shared interaction and responsive layouts. */
+:focus-visible { outline: 3px solid #795548; outline-offset: 3px; }
+.cart-dropdown { max-width: calc(100vw - 32px); max-height: 65vh; overflow-y: auto; }
+#productsGrid img, #goodMatchingList img, #relatedProductsList img { width: 100%; aspect-ratio: 1; object-fit: contain; background: #fff; }
+#detailImage { width: 100%; max-height: 550px; object-fit: contain; }
+.qty-btn, .trash-btn { min-width: 40px; min-height: 40px; }
+header .nav { flex-wrap: wrap; }
+@media (max-width: 767px) {
+    header > .container > .d-flex:first-child { flex-wrap: wrap; gap: 12px !important; }
+    header .search-box { order: 3; flex-basis: 100%; max-width: none; }
+    header .search-box input { font-size: 16px; }
+    header > .container > .border-top { flex-wrap: wrap; gap: 8px; }
+    header.sticky-top { position: relative; }
+    .hero-image img { height: auto; max-height: 420px; object-fit: cover; }
+    .collection-content { width: 100%; }
+    .collection-img { height: auto; max-height: 450px; }
+    .page-card { padding: 20px; margin: 20px auto; }
+    #checkout-main-content .ps-5 { padding-left: 0 !important; margin-left: 0 !important; }
+    .step-line { display: none; }
+    #checkout-main-content .sticky-top { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
 }
