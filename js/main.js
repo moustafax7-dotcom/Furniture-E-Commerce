@@ -130,7 +130,25 @@ function renderCartDropdown() {
     if (!container) return;
 
     const cart = getCart();
-    countEl.textContent = cart.reduce((count, item) => count + item.qty, 0);
+    const itemCount = cart.reduce((count, item) => count + item.qty, 0);
+    countEl.textContent = itemCount;
+
+    const cartLink = document.getElementById('cartToggle');
+    if (cartLink) {
+        let badge = document.getElementById('cartBadge');
+        if (!badge) {
+            badge = document.createElement('span');
+            badge.id = 'cartBadge';
+            badge.className = 'position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger';
+            badge.style.fontSize = '0.65rem';
+            badge.setAttribute('aria-hidden', 'true');
+            cartLink.classList.add('position-relative', 'd-inline-block');
+            cartLink.appendChild(badge);
+        }
+        badge.textContent = itemCount > 99 ? '99+' : String(itemCount);
+        badge.hidden = itemCount === 0;
+        cartLink.setAttribute('aria-label', `Open cart, ${itemCount} ${itemCount === 1 ? 'item' : 'items'}`);
+    }
 
     if (cart.length === 0) {
         container.innerHTML = '<p class="text-muted small text-center py-3">Your cart is empty</p>';
