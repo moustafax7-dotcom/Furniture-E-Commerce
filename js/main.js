@@ -1,65 +1,61 @@
-// ============================================================
-// قاعدة بيانات المنتجات - المصدر الوحيد للحقيقة لكل المنتجات
-// أي صفحة (products.html, product-details.html, cart.html)
-// بتقرا من هنا بدل ما تكتب بياناتها بشكل منفصل
-// ============================================================
 const PRODUCTS = [
-    { id: 1, name: 'C Side Table', price: 10.9, oldPrice: 23.21, image: 'images/image25.png', rating: 4.8, reviews: 102 },
-    { id: 2, name: 'Marigold Sofa', price: 199.9, oldPrice: 249.9, image: 'images/image4.png', rating: 4.8, reviews: 102 },
-    { id: 3, name: 'Copper Chandelier', price: 18.9, oldPrice: null, image: 'images/image8.png', rating: 4.8, reviews: 102 },
-    { id: 4, name: 'Dining chairs', price: 18.9, oldPrice: 23.21, image: 'images/image21.png', rating: 4.8, reviews: 102 },
-    { id: 5, name: 'Side Table', price: 18.9, oldPrice: 23.21, image: 'images/image15.png', rating: 4.8, reviews: 102 },
-    { id: 6, name: 'Wall Lamp', price: 8.9, oldPrice: 10.21, image: 'images/image26.png', rating: 4.8, reviews: 102 },
-    { id: 7, name: 'Cushion Cactus', price: 7.0, oldPrice: null, image: 'images/image10.png', rating: 4.8, reviews: 102 },
-    { id: 8, name: 'Studio Chair', price: 18.9, oldPrice: 23.21, image: 'images/image20.png', rating: 4.8, reviews: 102 },
-    { id: 9, name: 'Studio Chair', price: 23.9, oldPrice: null, image: 'images/image19.png', rating: 4.8, reviews: 102 },
-    { id: 10, name: 'Wood Coaster', price: 2.9, oldPrice: 4.21, image: 'images/image18.png', rating: 4.8, reviews: 102 },
-    { id: 11, name: 'TV Cabinet', price: 120.0, oldPrice: 160.0, image: 'images/image22.png', rating: 4.8, reviews: 102 },
-    { id: 12, name: 'Studio Chair', price: 18.9, oldPrice: 23.21, image: 'images/image16.png', rating: 4.8, reviews: 102 },
-    { id: 13, name: 'High Chair', price: 10.9, oldPrice: 23.21, image: 'images/image14.png', rating: 4.8, reviews: 102 },
-    { id: 14, name: 'Classic Sofa', price: 199.9, oldPrice: 249.9, image: 'images/image13.png', rating: 4.8, reviews: 102 },
-    { id: 15, name: 'Standing Lamp', price: 8.99, oldPrice: 12.21, image: 'images/image23.png', rating: 4.8, reviews: 102 },
-    { id: 16, name: 'Warm Hexagon Lamp', price: 2.12, oldPrice: 5.21, image: 'images/image18.png', rating: 4.8, reviews: 102 },
-    { id: 17, name: 'Side Table', price: 18.9, oldPrice: 23.21, image: 'images/image16.png', rating: 4.8, reviews: 102 },
-    { id: 18, name: 'Studio Chair', price: 18.9, oldPrice: 23.21, image: 'images/image7.png', rating: 4.8, reviews: 102 },
-    { id: 19, name: 'Net Chair', price: 18.9, oldPrice: 23.21, image: 'images/image2.png', rating: 4.8, reviews: 102 },
-    { id: 20, name: 'Hanging Shelf', price: 18.9, oldPrice: 23.21, image: 'images/image3.png', rating: 4.8, reviews: 102 },
-    { id: 21, name: 'Marmer Cabinet', price: 18.9, oldPrice: 23.21, image: 'images/image15.png', rating: 4.8, reviews: 102 },
-    { id: 22, name: 'Wooden Table', price: 15.9, oldPrice: null, image: 'images/image20.png', rating: 4.8, reviews: 102 },
-    { id: 23, name: 'Small Cabinet', price: 18.9, oldPrice: 23.21, image: 'images/image13.png', rating: 4.8, reviews: 102 },
-    { id: 24, name: 'Wooden Table', price: 18.9, oldPrice: 23.21, image: 'images/image21.png', rating: 4.8, reviews: 102 },
+    { id: 1, category: 'table', name: 'Console Table', price: 10.9, oldPrice: 23.21, image: 'images/image25.png' },
+    { id: 2, category: 'sofa', name: 'Marigold Sofa', price: 199.9, oldPrice: 249.9, image: 'images/image7.png' },
+    { id: 3, category: 'lighting', name: 'Copper Pendant', price: 18.9, oldPrice: null, image: 'images/image18.png' },
+    { id: 4, category: 'chair', name: 'Dining Chair', price: 18.9, oldPrice: 23.21, image: 'images/image21.png' },
+    { id: 5, category: 'table', name: 'Round Side Table', price: 18.9, oldPrice: 23.21, image: 'images/image14.png' },
+    { id: 6, category: 'lighting', name: 'Wall Lamp', price: 8.9, oldPrice: 10.21, image: 'images/image23.png' },
+    { id: 7, category: 'chair', name: 'Sculptural Lounge Chair', price: 7.0, oldPrice: null, image: 'images/image10.png' },
+    { id: 8, category: 'chair', name: 'Studio Chair', price: 18.9, oldPrice: 23.21, image: 'images/image20.png' },
+    { id: 9, category: 'chair', name: 'Upholstered Chair', price: 23.9, oldPrice: null, image: 'images/image19.png' },
+    { id: 10, category: 'lighting', name: 'Minimal Table Lamp', price: 2.9, oldPrice: 4.21, image: 'images/image17.png' },
+    { id: 11, category: 'cabinet', name: 'TV Cabinet', price: 120.0, oldPrice: 160.0, image: 'images/image22.png' },
+    { id: 12, category: 'cabinet', name: 'Drawer Cabinet', price: 18.9, oldPrice: 23.21, image: 'images/image16.png' },
+    { id: 13, category: 'table', name: 'Dining Set', price: 10.9, oldPrice: 23.21, image: 'images/image2.png' },
+    { id: 14, category: 'chair', name: 'Cream Lounge Chair', price: 199.9, oldPrice: 249.9, image: 'images/image4.png' },
+    { id: 15, category: 'lighting', name: 'Geometric Pendant', price: 8.99, oldPrice: 12.21, image: 'images/image26.png' },
+    { id: 16, category: 'decor', name: 'Wooden Shelf', price: 2.12, oldPrice: 5.21, image: 'images/image15.png' },
+    { id: 17, category: 'cabinet', name: 'Decorative Sideboard', price: 18.9, oldPrice: 23.21, image: 'images/image24.png' },
+    { id: 18, category: 'chair', name: 'Wood Frame Chair', price: 18.9, oldPrice: 23.21, image: 'images/image6.png' },
+    { id: 19, category: 'chair', name: 'Wire Lounge Chair', price: 18.9, oldPrice: 23.21, image: 'images/image12.png' },
+    { id: 20, category: 'table', name: 'Low Coffee Table', price: 18.9, oldPrice: 23.21, image: 'images/image3.png' },
+    { id: 21, category: 'cabinet', name: 'Storage Cabinet', price: 18.9, oldPrice: 23.21, image: 'images/image13.png' },
+    { id: 22, category: 'bed', name: 'Bed Frame', price: 15.9, oldPrice: null, image: 'images/image1.png' },
+    { id: 23, category: 'chair', name: 'Accent Chair', price: 18.9, oldPrice: 23.21, image: 'images/image9.png' },
+    { id: 24, category: 'chair', name: 'Curved Lounge Chair', price: 18.9, oldPrice: 23.21, image: 'images/image5.png' },
 ];
 
-// ============================================================
-// نظام السلة - بيستخدم localStorage عشان تفضل السلة موجودة
-// حتى لو المستخدم قفل المتصفح أو انتقل بين الصفحات
-// ============================================================
-
 function getCart() {
-    const stored = localStorage.getItem('emmable_cart');
-    if (!stored) return [];
     try {
+        const stored = localStorage.getItem('emmable_cart');
+        if (!stored) return [];
         const parsed = JSON.parse(stored);
         if (!Array.isArray(parsed)) return [];
-        return parsed.filter(item => item && typeof item.id === 'number' && Number.isFinite(item.qty) && item.qty > 0);
+        return parsed.filter(item => item && PRODUCTS.some(p => p.id === item.id) && Number.isInteger(item.qty) && item.qty > 0 && item.qty <= 99);
     } catch (e) {
         return [];
     }
 }
 
 function saveCart(cart) {
-    localStorage.setItem('emmable_cart', JSON.stringify(cart));
+    try {
+        localStorage.setItem('emmable_cart', JSON.stringify(cart));
+    } catch (error) {
+        alert('Your browser could not save the cart. Please enable site storage and try again.');
+        throw error;
+    }
 }
 
 function addToCart(productId, qty) {
-    qty = qty || 1;
+    qty = Number(qty ?? 1);
+    if (!PRODUCTS.some(p => p.id === productId) || !Number.isInteger(qty) || qty < 1) return;
     let cart = getCart();
     const existing = cart.find(item => item.id === productId);
 
     if (existing) {
-        existing.qty += qty;
+        existing.qty = Math.min(99, existing.qty + qty);
     } else {
-        cart.push({ id: productId, qty: qty });
+        cart.push({ id: productId, qty: Math.min(99, qty) });
     }
 
     saveCart(cart);
@@ -74,7 +70,7 @@ function getCartSubtotal() {
         const product = PRODUCTS.find(p => p.id === item.id);
         if (product) subtotal += product.price * item.qty;
     });
-    return subtotal;
+    return Math.round(subtotal * 100) / 100;
 }
 
 function showCartToast(message) {
@@ -93,7 +89,7 @@ function showCartToast(message) {
     toastEl.innerHTML = `
         <div class="d-flex">
             <div class="toast-body">${message}</div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close notification"></button>
         </div>
     `;
     container.appendChild(toastEl);
@@ -120,23 +116,21 @@ function changeQty(productId, amount) {
     const item = cart.find(i => i.id === productId);
     if (!item) return;
 
-    item.qty += amount;
+    item.qty = Math.min(99, item.qty + amount);
     if (item.qty < 1) item.qty = 1;
 
     saveCart(cart);
     renderCartDropdown();
 }
-
-// بيرسم محتوى الكارت دروب داون من جديد كل مرة، بناء على بيانات localStorage
 function renderCartDropdown() {
     const container = document.getElementById('cartItemsContainer');
     const countEl = document.getElementById('cartCount');
     const subtotalEl = document.getElementById('cartSubtotal');
 
-    if (!container) return; // الصفحة دي مفيهاش كارت دروب داون، منكملش
+    if (!container) return;
 
     const cart = getCart();
-    countEl.textContent = cart.length;
+    countEl.textContent = cart.reduce((count, item) => count + item.qty, 0);
 
     if (cart.length === 0) {
         container.innerHTML = '<p class="text-muted small text-center py-3">Your cart is empty</p>';
@@ -189,11 +183,6 @@ if (cartToggleBtn) {
     cartToggleBtn.addEventListener('click', toggleCartDropdown);
     renderCartDropdown();
 }
-
-
-// ============================================================
-// كود script.js (فلترة المنتجات في الصفحة الرئيسية - index.html)
-// ============================================================
 let categories = document.querySelectorAll(".category-menu li");
 
 for (let i = 0; i < categories.length; i++) {
@@ -204,9 +193,6 @@ for (let i = 0; i < categories.length; i++) {
             categories[j].classList.remove("active-category");
         }
         categories[i].classList.add("active-category");
-
-        // بنقرا .product-item وقت الدوسة نفسها مش وقت تحميل الصفحة،
-        // عشان الكروت بقت بتتبني ديناميكيًا بعد كده (renderHomeNewProducts)
         let productItems = document.querySelectorAll(".product-item");
         for (let j = 0; j < productItems.length; j++) {
             let productCategory = productItems[j].getAttribute("data-category");
@@ -218,11 +204,6 @@ for (let i = 0; i < categories.length; i++) {
         }
     };
 }
-
-
-// ============================================================
-// كود صفحة السلة الكاملة (shopping.html) - بيقرا من نفس localStorage
-// ============================================================
 function removeCartRow(productId) {
     removeFromCart(productId);
     renderShoppingCart();
@@ -236,7 +217,7 @@ function changeCartRowQty(productId, action) {
 
 function renderShoppingCart() {
     const list = document.getElementById('cartItemsList');
-    if (!list) return; // مش في صفحة السلة
+    if (!list) return;
 
     const cart = getCart();
     const emptyState = document.getElementById('emptyCartState');
@@ -284,11 +265,6 @@ function renderShoppingCart() {
 }
 
 renderShoppingCart();
-
-
-// ============================================================
-// صفحة تفاصيل المنتج (product-details.html) - بتقرا id من الرابط
-// ============================================================
 function getRelatedProducts(currentId, count, offset) {
     offset = offset || 0;
     const others = PRODUCTS.filter(p => p.id !== currentId);
@@ -316,10 +292,7 @@ function renderProductCardsInto(containerId, products, withAddToCart) {
                 <a href="product-details.html?id=${product.id}" class="text-decoration-none text-dark">
                     <img src="${product.image}" class="img-fluid rounded-3 mb-3" alt="${product.name}" loading="lazy">
                     <p class="mb-1 fw-semibold">${product.name}</p>
-                    <p class="small text-warning mb-1">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                        <span class="text-dark">${product.rating} (${product.reviews} reviews)</span>
-                    </p>
+                    <p class="small text-muted mb-1">Sample collection</p>
                     <p class="mb-0"><span class="fw-bold">$${product.price.toFixed(2)}</span> ${oldPriceHtml}</p>
                 </a>
                 ${addToCartBtn}
@@ -331,10 +304,10 @@ function renderProductCardsInto(containerId, products, withAddToCart) {
 
 function renderProductDetailsPage() {
     const root = document.getElementById('productDetailsRoot');
-    if (!root) return; // مش في صفحة تفاصيل المنتج
+    if (!root) return;
 
     const params = new URLSearchParams(window.location.search);
-    const productId = parseInt(params.get('id')) || PRODUCTS[0].id;
+    const productId = params.has('id') ? Number(params.get('id')) : PRODUCTS[0].id;
     const product = PRODUCTS.find(p => p.id === productId);
 
     if (!product) {
@@ -375,7 +348,7 @@ function renderProductDetailsPage() {
 function changeDetailQty(amount) {
     const input = document.getElementById('detailQtyInput');
     let qty = parseInt(input.value) || 1;
-    qty += amount;
+    qty = Math.min(99, qty + amount);
     if (qty < 1) qty = 1;
     input.value = qty;
 
@@ -390,14 +363,9 @@ function addDetailProductToCart() {
 }
 
 renderProductDetailsPage();
-
-
-// ============================================================
-// منع تخطي خطوات الـ checkout بدون منتجات في السلة
-// ============================================================
 function guardCheckoutStep() {
     const checkoutMain = document.getElementById('checkout-main-content');
-    if (!checkoutMain) return; // مش في صفحة checkout
+    if (!checkoutMain) return;
 
     if (getCart().length === 0) {
         window.location.href = 'shopping.html';
@@ -405,30 +373,18 @@ function guardCheckoutStep() {
 }
 
 guardCheckoutStep();
-
-
-// ============================================================
-// Products Experience: فلترة، بحث، ترتيب (products.html)
-// ============================================================
-
-// كلمات مرادفة لكل فئة، لأن أسماء المنتجات مبتطابقش أسماء الفئات دايمًا حرفيًا
-const CATEGORY_SYNONYMS = {
-    'sofa recliner': ['sofa'],
-    'furnitures': ['table', 'sofa', 'cabinet'],
-    'furniture': ['table', 'sofa', 'cabinet'],
-    'decor': ['cushion', 'coaster', 'shelf'],
-    'lighting': ['lamp', 'chandelier']
+const CATEGORY_ALIASES = {
+    chairs: 'chair', tables: 'table', sofas: 'sofa', 'sofa recliner': 'sofa',
+    'tv cabinet': 'cabinet', cabinets: 'cabinet', lamp: 'lighting', cushion: 'decor'
 };
 
 function productMatchesCategory(product, category) {
-    if (!category) return true;
-    const name = product.name.toLowerCase();
-    const cat = category.toLowerCase();
-
-    if (name.includes(cat)) return true;
-
-    const synonyms = CATEGORY_SYNONYMS[cat] || [];
-    return synonyms.some(keyword => name.includes(keyword));
+    const key = category.trim().toLowerCase();
+    if (!key || key === 'all') return true;
+    if (key === 'furniture' || key === 'furnitures') {
+        return ['chair', 'table', 'sofa', 'cabinet', 'bed'].includes(product.category);
+    }
+    return product.category === (CATEGORY_ALIASES[key] || key);
 }
 
 function getFilteredProducts() {
@@ -463,7 +419,7 @@ function getFilteredProducts() {
 
 function renderProductsPage() {
     const grid = document.getElementById('productsGrid');
-    if (!grid) return; // مش في products.html
+    if (!grid) return;
 
     const filtered = getFilteredProducts();
     const emptyState = document.getElementById('productsEmptyState');
@@ -471,7 +427,6 @@ function renderProductsPage() {
     const countLabel = document.getElementById('productsCount');
 
     const params = new URLSearchParams(window.location.search);
-    const hasFilters = params.get('category') || params.get('search') || params.get('maxPrice') || params.get('sort');
 
     if (filtered.length === 0) {
         grid.classList.add('d-none');
@@ -481,7 +436,7 @@ function renderProductsPage() {
         grid.classList.remove('d-none');
         emptyState.classList.add('d-none');
         renderProductCardsInto('productsGrid', filtered, true);
-        if (pagination) pagination.classList.toggle('d-none', !!hasFilters);
+        if (pagination) pagination.classList.add('d-none');
     }
 
     if (countLabel) {
@@ -496,7 +451,7 @@ function renderProductsPage() {
             'name-asc': 'Name: A to Z',
             'name-desc': 'Name: Z to A'
         };
-        sortLabel.textContent = 'Sort by: ' + (sortNames[params.get('sort')] || 'Populer');
+        sortLabel.textContent = 'Sort by: ' + (sortNames[params.get('sort')] || 'Featured');
     }
 }
 
@@ -518,10 +473,7 @@ function applyPriceFilter() {
 }
 
 function clearAllFilters() {
-    const params = new URLSearchParams(window.location.search);
-    const category = params.get('category');
-    // الفلاتر بتتمسح، بس الفئة اللي جاية من هوم بيدج (لو موجودة) بتفضل زي ما هي
-    window.location.href = 'products.html' + (category ? '?category=' + encodeURIComponent(category) : '');
+    window.location.href = 'products.html';
 }
 
 function performSiteSearch() {
@@ -567,23 +519,16 @@ function initProductsPageControls() {
 
 renderProductsPage();
 initProductsPageControls();
-
-
-// ============================================================
-// New Products (index.html) - نفس PRODUCTS بدل بيانات منفصلة
-// ============================================================
 function renderHomeNewProducts() {
     const grid = document.getElementById('homeNewProductsGrid');
-    if (!grid) return; // مش في index.html
-
-    // اختيار يدوي لـ 6 منتجات حقيقية موزعة على الفئات الأربعة الموجودة في التصميم
+    if (!grid) return;
     const featured = [
         { id: 2, category: 'furniture' },
         { id: 8, category: 'chairs' },
-        { id: 7, category: 'decor' },
+        { id: 16, category: 'decor' },
         { id: 6, category: 'lighting' },
         { id: 11, category: 'furniture' },
-        { id: 16, category: 'lighting' }
+        { id: 15, category: 'lighting' }
     ];
 
     let html = '';
@@ -601,14 +546,7 @@ function renderHomeNewProducts() {
                     <div class="product-card text-center">
                         <img src="${product.image}" class="w-100 rounded-3 object-fit-cover" alt="${product.name}" loading="lazy">
                         <h5 class="fw-bold mt-3">${product.name}</h5>
-                        <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                            <span class="text-dark ms-2">${product.rating} (${product.reviews} reviews)</span>
-                        </div>
+                        <p class="small text-muted mb-1">Sample collection</p>
                         <p class="fw-bold mt-2 mb-0">$${product.price.toFixed(2)} ${oldPriceHtml}</p>
                     </div>
                 </a>
@@ -620,14 +558,9 @@ function renderHomeNewProducts() {
 }
 
 renderHomeNewProducts();
-
-
-// ============================================================
-// ملخص الطلب في صفحات الدفع والمراجعة (payment.html / review.html)
-// ============================================================
 function updateOrderSummary() {
     const subtotalEl = document.getElementById('summarySubtotal');
-    if (!subtotalEl) return; // مفيش Order Summary في الصفحة دي
+    if (!subtotalEl) return;
 
     const subtotal = getCartSubtotal();
     const shipping = 14;
@@ -637,7 +570,7 @@ function updateOrderSummary() {
 
 function renderReviewItems() {
     const list = document.getElementById('reviewItemsList');
-    if (!list) return; // مش في صفحة المراجعة
+    if (!list) return;
 
     const cart = getCart();
     let html = '';
@@ -666,35 +599,25 @@ function renderReviewItems() {
 updateOrderSummary();
 renderReviewItems();
 
-
 function checkForm(event) {
     event.preventDefault();
     const form = document.getElementById("shipForm");
+    for (const input of form.querySelectorAll('input[required]')) input.value = input.value.trim();
     if (form.checkValidity() == false) {
         form.classList.add("was-validated");
     } else {
+        const fields = ['email', 'fname', 'lname', 'country', 'address', 'city', 'province', 'zip', 'phone'];
+        const shipping = Object.fromEntries(fields.map(id => [id, document.getElementById(id).value.trim()]));
+        if (Object.values(shipping).some(value => !value)) return;
+        try { sessionStorage.setItem('emmable_shipping', JSON.stringify(shipping)); }
+        catch { alert('Enable site storage to continue checkout.'); return; }
         window.location.href = "payment.html";
     }
 }
-
-
-// ============================================================
-// كود صفحات الدفع والمراجعة (payment.html / review.html)
-// ============================================================
 document.addEventListener("DOMContentLoaded", function () {
-    var creditCardRadio = document.getElementById("creditCardRadio");
-    var paypalRadio = document.getElementById("paypalRadio");
     var paymentForm = document.getElementById("payment-form");
     var placeOrderBtn = document.getElementById("btn-place-order");
-    var cardNumberInput = document.getElementById("cardNumber");
 
-    if (cardNumberInput != null) {
-        cardNumberInput.addEventListener("input", formatCardNumber);
-    }
-    if (creditCardRadio != null && paypalRadio != null) {
-        creditCardRadio.addEventListener("click", toggleCreditCardForm);
-        paypalRadio.addEventListener("click", toggleCreditCardForm);
-    }
     if (paymentForm != null) {
         paymentForm.addEventListener("submit", goToReviewPage);
     }
@@ -703,34 +626,98 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function toggleCreditCardForm() {
-    var creditCardRadio = document.getElementById("creditCardRadio");
-    var creditCardForm = document.getElementById("creditCardForm");
-    creditCardForm.style.display = creditCardRadio.checked ? "flex" : "none";
-}
-
 function goToReviewPage(event) {
     event.preventDefault();
     var paymentForm = document.getElementById("payment-form");
     if (paymentForm.checkValidity() == true) {
+        try { sessionStorage.setItem('emmable_payment', 'demo'); }
+        catch { alert('Enable site storage to continue checkout.'); return; }
         window.location.href = "review.html";
     } else {
         paymentForm.reportValidity();
     }
 }
 
-function goToSuccessPage() {
-    localStorage.removeItem('emmable_cart');
-    window.location.href = "order-success.html";
+function readSession(key) {
+    try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; }
 }
 
-function formatCardNumber(event) {
-    var value = event.target.value.replace(/\D/g, "");
-    value = value.substring(0, 16);
-    var formattedValue = "";
-    for (var i = 0; i < value.length; i++) {
-        if (i > 0 && i % 4 == 0) formattedValue += " ";
-        formattedValue += value[i];
-    }
-    event.target.value = formattedValue;
+function goToSuccessPage() {
+    const cart = getCart();
+    const shipping = readSession('emmable_shipping');
+    if (!cart.length || !shipping) { window.location.href = 'shopping.html'; return; }
+    const order = {
+        id: 'EM-' + crypto.randomUUID().slice(0, 8).toUpperCase(),
+        date: new Date().toISOString(),
+        items: cart.map(item => ({ ...item, name: PRODUCTS.find(p => p.id === item.id).name })),
+        total: Number((getCartSubtotal() + 14).toFixed(2))
+    };
+    try {
+        sessionStorage.setItem('emmable_order', JSON.stringify(order));
+        localStorage.removeItem('emmable_cart');
+        sessionStorage.removeItem('emmable_shipping');
+        sessionStorage.removeItem('emmable_payment');
+    } catch { alert('Could not save the order. Your cart has not been submitted.'); return; }
+    window.location.href = 'order-success.html';
 }
+
+function initCheckout() {
+    const shipping = readSession('emmable_shipping');
+    const path = window.location.pathname;
+    if ((path.endsWith('payment.html') || path.endsWith('review.html')) && !shipping) {
+        window.location.replace('shipping.html');
+        return;
+    }
+    if (path.endsWith('review.html') && sessionStorage.getItem('emmable_payment') !== 'demo') {
+        window.location.replace('payment.html');
+        return;
+    }
+    if (shipping) {
+        for (const [id, value] of Object.entries(shipping)) {
+            const field = document.getElementById(id);
+            if (field) field.value = value;
+        }
+        const address = document.getElementById('reviewShipping');
+        if (address) address.textContent = `${shipping.fname} ${shipping.lname}, ${shipping.address}, ${shipping.city}, ${shipping.province}, ${shipping.country}, ${shipping.zip}`;
+    }
+    const summary = document.getElementById('savedOrder');
+    if (summary) {
+        const order = readSession('emmable_order');
+        summary.textContent = order
+            ? `Demo order ${order.id} — ${order.items.reduce((sum, item) => sum + item.qty, 0)} items — $${order.total.toFixed(2)}`
+            : 'No saved demo order in this session. Browse the collection to get started.';
+    }
+}
+initCheckout();
+
+if (cartToggleBtn) {
+    cartToggleBtn.setAttribute('aria-expanded', 'false');
+    cartToggleBtn.addEventListener('click', () => {
+        cartToggleBtn.setAttribute('aria-expanded', String(!document.getElementById('cartDropdown').classList.contains('d-none')));
+    });
+    const closeCart = () => {
+        document.getElementById('cartDropdown').classList.add('d-none');
+        cartToggleBtn.setAttribute('aria-expanded', 'false');
+    };
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') { closeCart(); cartToggleBtn.focus(); }
+    });
+    document.addEventListener('click', event => {
+        if (!event.target.closest('#cartDropdown') && !event.target.closest('#cartToggle')) closeCart();
+    });
+}
+window.addEventListener('storage', event => {
+    if (event.key === 'emmable_cart') {
+        renderCartDropdown(); renderShoppingCart(); updateOrderSummary(); renderReviewItems();
+    }
+});
+
+for (const item of categories) {
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); item.click(); }
+    });
+}
+
+renderProductCardsInto('featuredProducts', PRODUCTS.slice(0, 4), true);
