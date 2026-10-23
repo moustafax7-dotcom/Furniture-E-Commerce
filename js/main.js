@@ -59,7 +59,7 @@ function addToCart(productId, qty) {
     }
 
     saveCart(cart);
-    renderCartDropdown();
+    refreshCartViews();
     showCartToast('Added to cart');
 }
 
@@ -107,7 +107,7 @@ function removeFromCart(productId) {
     let cart = getCart();
     cart = cart.filter(item => item.id !== productId);
     saveCart(cart);
-    renderCartDropdown();
+    refreshCartViews();
     showCartToast('Item removed from cart');
 }
 
@@ -120,8 +120,15 @@ function changeQty(productId, amount) {
     if (item.qty < 1) item.qty = 1;
 
     saveCart(cart);
-    renderCartDropdown();
+    refreshCartViews();
 }
+function refreshCartViews() {
+    renderCartDropdown();
+    renderShoppingCart();
+    updateOrderSummary();
+    renderReviewItems();
+}
+
 function renderCartDropdown() {
     const container = document.getElementById('cartItemsContainer');
     const countEl = document.getElementById('cartCount');
@@ -660,9 +667,16 @@ function readSession(key) {
     try { return JSON.parse(sessionStorage.getItem(key)); } catch { return null; }
 }
 
+function getShippingDetails() {
+    const shipping = readSession('emmable_shipping');
+    const fields = ['email', 'fname', 'lname', 'country', 'address', 'city', 'province', 'zip', 'phone'];
+    return shipping && fields.every(key => typeof shipping[key] === 'string' && shipping[key].trim())
+        ? shipping : null;
+}
+
 function goToSuccessPage() {
     const cart = getCart();
-    const shipping = readSession('emmable_shipping');
+    const shipping = getShippingDetails();
     if (!cart.length || !shipping) { window.location.href = 'shopping.html'; return; }
     const order = {
         id: 'EM-' + crypto.randomUUID().slice(0, 8).toUpperCase(),
@@ -680,13 +694,15 @@ function goToSuccessPage() {
 }
 
 function initCheckout() {
-    const shipping = readSession('emmable_shipping');
+    const shipping = getShippingDetails();
     const path = window.location.pathname;
     if ((path.endsWith('payment.html') || path.endsWith('review.html')) && !shipping) {
         window.location.replace('shipping.html');
         return;
     }
-    if (path.endsWith('review.html') && sessionStorage.getItem('emmable_payment') !== 'demo') {
+    let payment = null;
+    try { payment = sessionStorage.getItem('emmable_payment'); } catch {}
+    if (path.endsWith('review.html') && payment !== 'demo') {
         window.location.replace('payment.html');
         return;
     }
@@ -701,7 +717,10 @@ function initCheckout() {
     const summary = document.getElementById('savedOrder');
     if (summary) {
         const order = readSession('emmable_order');
-        summary.textContent = order
+        const validOrder = order && typeof order.id === 'string' && Number.isFinite(order.total)
+            && order.total >= 0 && Array.isArray(order.items) && order.items.length > 0
+            && order.items.every(item => item && Number.isInteger(item.qty) && item.qty > 0);
+        summary.textContent = validOrder
             ? `Demo order ${order.id} — ${order.items.reduce((sum, item) => sum + item.qty, 0)} items — $${order.total.toFixed(2)}`
             : 'No saved demo order in this session. Browse the collection to get started.';
     }
@@ -718,15 +737,18 @@ if (cartToggleBtn) {
         cartToggleBtn.setAttribute('aria-expanded', 'false');
     };
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') { closeCart(); cartToggleBtn.focus(); }
+        if (event.key === 'Escape' && !document.getElementById('cartDropdown').classList.contains('d-none')) {
+            closeCart();
+            cartToggleBtn.focus();
+        }
     });
     document.addEventListener('click', event => {
         if (!event.target.closest('#cartDropdown') && !event.target.closest('#cartToggle')) closeCart();
     });
 }
 window.addEventListener('storage', event => {
-    if (event.key === 'emmable_cart') {
-        renderCartDropdown(); renderShoppingCart(); updateOrderSummary(); renderReviewItems();
+    if (event.key === 'emmable_cart' || event.key === null) {
+        refreshCartViews();
     }
 });
 
