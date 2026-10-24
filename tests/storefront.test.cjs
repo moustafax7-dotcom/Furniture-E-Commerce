@@ -7,7 +7,7 @@ const nodes = {};
 const context = vm.createContext({
     localStorage: storage(), sessionStorage: storage(), URLSearchParams, crypto,
     window: {location: {pathname:'/index.html',search:'',href:'',replace(){}},addEventListener(){}},
-    document: {getElementById:id=>nodes[id]||null,querySelectorAll:()=>[],addEventListener(){}},
+    document: {getElementById:id=>nodes[id]||null,querySelectorAll:()=>[],querySelector:()=>null,addEventListener(){}},
     alert() {}, console
 });
 vm.runInContext(fs.readFileSync('js/main.js','utf8'),context);
@@ -54,3 +54,11 @@ assert.equal(run('refreshed.join(",")'),'badge,cart,summary,review');
 run('refreshed = []; removeFromCart(1)');
 assert.equal(run('refreshed.join(",")'),'badge,cart,summary,review');
 console.log('Passed: malformed checkout recovery and synchronized cart views.');
+
+assert.equal(run('Object.keys(PRODUCT_DESCRIPTIONS).length'),run('PRODUCTS.length'));
+assert.equal(run('new Set(Object.values(PRODUCT_DESCRIPTIONS)).size'),run('PRODUCTS.length'));
+assert.equal(run('PRODUCTS.find(p => p.id === 17).category'),'decor');
+context.sessionStorage = storage();
+context.sessionStorage.setItem('emmable_catalog','?category=chair&search=studio&sort=price-desc&redirect=https://example.com');
+assert.equal(run('getCatalogReturnUrl()'),'products.html?category=chair&search=studio&sort=price-desc');
+console.log('Passed: product descriptions, corrected category and preserved catalog filters.');
