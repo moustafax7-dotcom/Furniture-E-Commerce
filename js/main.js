@@ -8,14 +8,14 @@ const PRODUCTS = [
     { id: 7, category: 'chair', name: 'Sculptural Lounge Chair', price: 7.0, oldPrice: null, image: 'images/image10.png' },
     { id: 8, category: 'chair', name: 'Studio Chair', price: 18.9, oldPrice: 23.21, image: 'images/image20.png' },
     { id: 9, category: 'chair', name: 'Upholstered Chair', price: 23.9, oldPrice: null, image: 'images/image19.png' },
-    { id: 10, category: 'lighting', name: 'Minimal Table Lamp', price: 2.9, oldPrice: 4.21, image: 'images/image17.png' },
+    { id: 10, category: 'lighting', name: 'Task Lamp', price: 2.9, oldPrice: 4.21, image: 'images/image17.png' },
     { id: 11, category: 'cabinet', name: 'TV Cabinet', price: 120.0, oldPrice: 160.0, image: 'images/image22.png' },
     { id: 12, category: 'cabinet', name: 'Drawer Cabinet', price: 18.9, oldPrice: 23.21, image: 'images/image16.png' },
     { id: 13, category: 'table', name: 'Dining Set', price: 10.9, oldPrice: 23.21, image: 'images/image2.png' },
     { id: 14, category: 'chair', name: 'Cream Lounge Chair', price: 199.9, oldPrice: 249.9, image: 'images/image4.png' },
     { id: 15, category: 'lighting', name: 'Geometric Pendant', price: 8.99, oldPrice: 12.21, image: 'images/image26.png' },
     { id: 16, category: 'decor', name: 'Wooden Shelf', price: 2.12, oldPrice: 5.21, image: 'images/image15.png' },
-    { id: 17, category: 'cabinet', name: 'Decorative Sideboard', price: 18.9, oldPrice: 23.21, image: 'images/image24.png' },
+    { id: 17, category: 'decor', name: 'Decorative Vase Set', price: 18.9, oldPrice: 23.21, image: 'images/image24.png' },
     { id: 18, category: 'chair', name: 'Wood Frame Chair', price: 18.9, oldPrice: 23.21, image: 'images/image6.png' },
     { id: 19, category: 'chair', name: 'Wire Lounge Chair', price: 18.9, oldPrice: 23.21, image: 'images/image12.png' },
     { id: 20, category: 'table', name: 'Low Coffee Table', price: 18.9, oldPrice: 23.21, image: 'images/image3.png' },
@@ -24,6 +24,35 @@ const PRODUCTS = [
     { id: 23, category: 'chair', name: 'Accent Chair', price: 18.9, oldPrice: 23.21, image: 'images/image9.png' },
     { id: 24, category: 'chair', name: 'Curved Lounge Chair', price: 18.9, oldPrice: 23.21, image: 'images/image5.png' },
 ];
+
+const PRODUCT_DESCRIPTIONS = {
+    "1": "A long console table with a slim profile and an open lower shelf, shown in a light wood tone.",
+    "2": "A cream sofa with rounded arms and a low, elongated silhouette.",
+    "3": "An open geometric pendant shade shown in a warm copper tone.",
+    "4": "A dining chair with a dark upholstered seat, a tall back and slender angled legs.",
+    "5": "A round side table with a light-toned top and slim contrasting legs.",
+    "6": "An adjustable-looking wall light with a dark shade and a brass-toned arm.",
+    "7": "A sculptural lounge chair with rounded cushions and a low, curved frame.",
+    "8": "A dark shell chair with a gently curved seat and contrasting legs.",
+    "9": "A light upholstered chair with a broad seat and a compact backrest.",
+    "10": "A dark task light with a curved shade, shown close up in the product photo.",
+    "11": "A low media cabinet with open storage compartments, shown beneath a wall-mounted TV.",
+    "12": "A narrow drawer cabinet with a simple front and small horizontal handles.",
+    "13": "A dining table and chairs shown together in a neutral room setting. Set contents are not specified.",
+    "14": "A cream lounge chair with a curved dark base and separate rounded cushions.",
+    "15": "A compact pendant light with an open geometric shade and dark fittings.",
+    "16": "A freestanding book display with open shelves and a light wood appearance.",
+    "17": "A decorative arrangement of pale vases with branches and small display pieces.",
+    "18": "A lounge chair with a curved frame and light upholstered seat and back.",
+    "19": "A circular lounge chair with an open wire-style seat and slim dark legs.",
+    "20": "A low coffee table shown as part of a complete living-room scene. Surrounding furniture is for styling.",
+    "21": "A light storage cabinet with a simple flat front, styled with plants and accessories.",
+    "22": "A low bed frame with a wide platform and a dark headboard, shown with bedding.",
+    "23": "A rounded accent chair with light upholstery and curved frame details.",
+    "24": "A cream lounge chair with a curved backrest and a contrasting dark base."
+};
+
+const CATEGORY_LABELS = { chair: "Chairs", table: "Tables", sofa: "Sofas", cabinet: "Cabinets", lighting: "Lighting", decor: "Decor", bed: "Beds" };
 
 function getCart() {
     try {
@@ -88,7 +117,7 @@ function showCartToast(message) {
     toastEl.setAttribute('role', 'alert');
     toastEl.innerHTML = `
         <div class="d-flex">
-            <div class="toast-body">${message}</div>
+            <div class="toast-body">${message} <a href="shopping.html" class="text-white ms-2">View cart</a></div>
             <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close notification"></button>
         </div>
     `;
@@ -327,6 +356,17 @@ function renderProductCardsInto(containerId, products, withAddToCart) {
     container.innerHTML = html;
 }
 
+function getCatalogReturnUrl() {
+    try {
+        const saved = new URLSearchParams(sessionStorage.getItem('emmable_catalog') || '');
+        const params = new URLSearchParams();
+        for (const key of ['category', 'search', 'maxPrice', 'sort']) {
+            if (saved.has(key)) params.set(key, saved.get(key));
+        }
+        return 'products.html' + (params.size ? '?' + params.toString() : '');
+    } catch { return 'products.html'; }
+}
+
 function renderProductDetailsPage() {
     const root = document.getElementById('productDetailsRoot');
     if (!root) return;
@@ -366,8 +406,27 @@ function renderProductDetailsPage() {
 
     document.getElementById('detailAddToCartBtn').setAttribute('data-product-id', product.id);
 
-    renderProductCardsInto('goodMatchingList', getRelatedProducts(product.id, 4, 0));
-    renderProductCardsInto('relatedProductsList', getRelatedProducts(product.id, 4, 4));
+    const description = PRODUCT_DESCRIPTIONS[product.id];
+    const categoryLabel = CATEGORY_LABELS[product.category];
+    document.getElementById('detailDescription').textContent = description;
+    document.getElementById('detailCategory').textContent = categoryLabel;
+    document.getElementById('detailCategory').href = 'products.html?category=' + product.category;
+    document.getElementById('detailOverview').textContent = description;
+    document.getElementById('detailReference').textContent = 'EM-' + String(product.id).padStart(3, '0');
+    document.getElementById('detailBackLink').href = getCatalogReturnUrl();
+    document.getElementById('detailSpecs').textContent = 'Verified dimensions, materials and care instructions are not available for ' + product.name + '. The photo shows its appearance; colours may vary by screen.';
+    document.getElementById('relatedHeading').textContent = 'More in ' + categoryLabel.toLowerCase();
+    const related = PRODUCTS.filter(item => item.id !== product.id && item.category === product.category).slice(0, 4);
+    document.getElementById('relatedSection').hidden = related.length === 0;
+    renderProductCardsInto('relatedProductsList', related);
+    const companionCategories = { sofa: ['table', 'lighting'], chair: ['table', 'lighting'], table: ['chair', 'decor'], cabinet: ['decor', 'lighting'], bed: ['lighting', 'table'], lighting: ['table', 'cabinet'], decor: ['cabinet', 'table'] };
+    renderProductCardsInto('goodMatchingList', PRODUCTS.filter(item => companionCategories[product.category].includes(item.category)).slice(0, 4));
+    const detailUrl = 'https://furniture-e-commerce-sand.vercel.app/product-details.html?id=' + product.id;
+    document.querySelector('link[rel="canonical"]').href = detailUrl;
+    document.querySelector('meta[property="og:url"]').content = detailUrl;
+    document.querySelector('meta[property="og:title"]').content = document.title;
+    document.querySelector('meta[property="og:description"]').content = description;
+    if (metaDesc) metaDesc.content = description;
 }
 
 function changeDetailQty(amount) {
@@ -378,6 +437,7 @@ function changeDetailQty(amount) {
     input.value = qty;
 
     document.getElementById('detailQtyMinus').disabled = (qty === 1);
+    document.getElementById('detailQtyPlus').disabled = (qty === 99);
 }
 
 function addDetailProductToCart() {
@@ -385,6 +445,8 @@ function addDetailProductToCart() {
     const productId = parseInt(btn.getAttribute('data-product-id'));
     const qty = parseInt(document.getElementById('detailQtyInput').value) || 1;
     addToCart(productId, qty);
+    const cartLink = document.getElementById('detailViewCart');
+    if (cartLink) cartLink.hidden = false;
 }
 
 renderProductDetailsPage();
@@ -445,6 +507,7 @@ function getFilteredProducts() {
 function renderProductsPage() {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
+    try { sessionStorage.setItem('emmable_catalog', window.location.search); } catch {}
 
     const filtered = getFilteredProducts();
     const emptyState = document.getElementById('productsEmptyState');
@@ -761,3 +824,49 @@ for (const item of categories) {
 }
 
 renderProductCardsInto('featuredProducts', PRODUCTS.slice(0, 4), true);
+
+function renderCheckoutProgress() {
+    const steps = [
+        ['shopping.html', 'Cart'], ['shipping.html', 'Shipping'],
+        ['payment.html', 'Demo payment'], ['review.html', 'Review']
+    ];
+    const current = steps.findIndex(([path]) => window.location.pathname.endsWith(path));
+    if (current < 0) return;
+    const main = document.getElementById('checkout-main-content') || document.querySelector('.page-card');
+    if (!main) return;
+    const nav = document.createElement('nav');
+    nav.setAttribute('aria-label', 'Checkout progress');
+    nav.className = 'checkout-progress mb-4';
+    const list = document.createElement('ol');
+    list.className = 'list-unstyled d-flex flex-wrap gap-2 mb-0';
+    steps.forEach(([path, label], index) => {
+        const item = document.createElement('li');
+        const step = document.createElement(index < current ? 'a' : 'span');
+        step.className = 'checkout-step' + (index === current ? ' is-current' : '');
+        step.textContent = `${index + 1}. ${label}`;
+        if (index < current) step.href = path;
+        if (index === current) step.setAttribute('aria-current', 'step');
+        item.appendChild(step);
+        list.appendChild(item);
+    });
+    nav.appendChild(list);
+    main.prepend(nav);
+}
+renderCheckoutProgress();
+
+function improveJourneyLabels() {
+    const shippingButton = document.querySelector('#shipForm button[type="submit"]');
+    if (shippingButton) shippingButton.textContent = 'Continue to demo payment';
+    const paymentButton = document.querySelector('button[form="payment-form"]');
+    if (paymentButton) paymentButton.textContent = 'Review your order';
+    const paymentHeading = document.querySelector('#payment-form')?.previousElementSibling;
+    if (paymentHeading) paymentHeading.textContent = 'Payment information';
+    const catalogLinks = document.querySelectorAll('header .nav-link');
+    const links = [['Shop all', 'products.html'], ['Chairs', 'products.html?category=chair'], ['Lighting', 'products.html?category=lighting'], ['About', 'index.html#contact']];
+    catalogLinks.forEach((link, index) => {
+        if (!links[index]) return;
+        link.textContent = links[index][0];
+        link.href = links[index][1];
+    });
+}
+improveJourneyLabels();
